@@ -1,0 +1,47 @@
+<tool id="refinery_test_1-1" name="Refinery test tool 1-1" version="0.1">
+    <description>for testing Galaxy workflow execution from Refinery</description>
+
+    <command interpreter="python">
+        refinery_test_tool.py -i $input_file -o $output_file -e $exit_code -p $p_fail -s $sleep_time $stdout $stderr
+    </command>
+
+    <inputs>
+        <param name="input_file" format="txt" type="data" label="Input file"/>
+        <param name="sleep_time" type="integer" label="Sleep (seconds)" value="0" min="0"/>
+        <param name="p_fail" type="float" label="Probability of failure [0.0, 1.0]" value="0.0" min="0.0" max="1.0"/>
+        <param name="stdout" type="boolean" label="Write to standard out" truevalue="--stdout" falsevalue=""/>
+        <param name="stderr" type="boolean" label="Write to standard error" truevalue="--stderr" falsevalue=""/>
+        <param name="exit_code" type="integer" label="Exit code [0, 255]" value="0" min="0" max="255"/>
+    </inputs>
+
+    <outputs>
+        <data format="txt" name="output_file" label="Text file"/>
+    </outputs>
+
+    <stdio>
+        <exit_code range="1:" level="fatal" />
+        <regex match=".+" source="stdout" level="fatal" description="Tool produced output to standard out" />
+        <regex match=".+" source="stderr" level="fatal" description="Tool produced output to standard error" />
+    </stdio>
+
+    <help>
+
+.. class:: infomark
+
+**Purpose**
+
+To test Galaxy workflow execution and monitoring from Refinery.
+
+-----
+
+.. class:: infomark
+
+**Inputs and outputs**
+
+This wrapper will accept one text file as input and produce a single output file.
+
+*Note:* You must set the "Probability of failure" parameter to a non-zero value
+for "Write to standard out", "Write to standard error" or "Exit code" to take effect.
+
+    </help>
+</tool>
