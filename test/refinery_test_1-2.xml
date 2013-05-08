@@ -1,8 +1,8 @@
-<tool id="refinery_test_1-1" name="Refinery test tool 1-1" version="0.1">
+<tool id="refinery_test_1-2" name="Refinery test tool 1-2" version="0.1">
     <description>for testing Galaxy workflow execution from Refinery</description>
 
     <command interpreter="python">
-        refinery_test_tool.py -i $input_file -o $output_file -e $exit_code -p $p_fail -s $sleep_time $stdout $stderr
+        refinery_test_tool.py -i $input_file -o $output_file1 $output_file2 -e $exit_code -p $p_fail -s $sleep_time $stdout $stderr
     </command>
 
     <inputs>
@@ -15,7 +15,8 @@
     </inputs>
 
     <outputs>
-        <data format="txt" name="output_file" label="Text file"/>
+        <data format="txt" name="output_file1" label="Text file"/>
+        <data format="txt" name="output_file2" label="Text file"/>
     </outputs>
 
     <stdio>
@@ -38,7 +39,7 @@ To test Galaxy workflow execution and monitoring from Refinery.
 
 **Inputs and outputs**
 
-This wrapper will accept one text file as input and produce a single output file
+This wrapper will accept one text file as input and produce two output files
 with content from input.
 
 *Note:* You must set the "Probability of failure" parameter to a non-zero value
