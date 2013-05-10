@@ -29,7 +29,7 @@ def main(args):
     input = read_files(args.input_files)
     try:
         for out_file in args.output_files:
-            out_file.write('\n' + "Output file name: " + out_file.name + '\n')
+            out_file.write("Output file name: " + out_file.name + '\n\n')
             out_file.write(input)
     except IOError as e:
         cleanup(args)

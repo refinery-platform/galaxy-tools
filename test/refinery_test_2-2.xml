@@ -1,12 +1,13 @@
-<tool id="refinery_test_1-2" name="Refinery test tool 1-2" version="0.1">
+<tool id="refinery_test_2-2" name="Refinery test tool 2-2" version="0.1">
     <description>for testing Galaxy workflow execution from Refinery</description>
 
     <command interpreter="python">
-        refinery_test_tool.py -i $input_file -o $output_file1 $output_file2 -e $exit_code -p $p_fail -s $sleep_time $stdout $stderr
+        refinery_test_tool.py -i $input_file1 $input_file2 -o $output_file1 $output_file2 -e $exit_code -p $p_fail -s $sleep_time $stdout $stderr
     </command>
 
     <inputs>
-        <param name="input_file" format="txt" type="data" label="Input file"/>
+        <param name="input_file1" format="txt" type="data" label="Input file A"/>
+        <param name="input_file2" format="txt" type="data" label="Input file B"/>
         <param name="sleep_time" type="integer" label="Sleep (seconds)" value="0" min="0"/>
         <param name="p_fail" type="float" label="Probability of failure [0.0, 1.0]" value="0.0" min="0.0" max="1.0"/>
         <param name="stdout" type="boolean" label="Write to standard out" truevalue="--stdout" falsevalue=""/>
@@ -39,8 +40,8 @@ To test Galaxy workflow execution and monitoring from Refinery.
 
 **Inputs and outputs**
 
-This wrapper will accept one text file as input and produce two output files
-with content from input.
+This wrapper will accept two text files as input and produce a single output file
+with concatenated content from input files.
 
 *Note:* You must set the "Probability of failure" parameter to a non-zero value
 for "Write to standard out", "Write to standard error" or "Exit code" to take effect.
