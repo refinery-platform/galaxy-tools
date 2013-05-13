@@ -29,7 +29,7 @@ def main(args):
     input = read_files(args.input_files)
     try:
         for out_file in args.output_files:
-            out_file.write("Output file name: " + out_file.name + '\n\n')
+            out_file.write("Output file name: " + out_file.name + "\n\n")
             out_file.write(input)
     except IOError as e:
         cleanup(args)
@@ -55,7 +55,7 @@ def read_files(file_list):
     '''
     str = ''
     for in_file in file_list:
-        str += "Input file name: " + in_file.name + '\n'
+        str += "Input file name: " + in_file.name + "\n\n"
         str += in_file.read()
     return str
 
