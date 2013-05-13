@@ -51,7 +51,7 @@
             "post_job_actions": {}, 
             "tool_errors": null, 
             "tool_id": "testtoolshed.g2.bx.psu.edu/repos/hackdna/refinery_test/refinery_test_1-1/0.1", 
-            "tool_state": "{\"__page__\": 0, \"stdout\": \"\\\"False\\\"\", \"input_file\": \"null\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"null\", \"stdout\": \"\\\"False\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
             "tool_version": "0.1", 
             "type": "tool", 
             "user_outputs": []
@@ -80,7 +80,7 @@
             "post_job_actions": {}, 
             "tool_errors": null, 
             "tool_id": "testtoolshed.g2.bx.psu.edu/repos/hackdna/refinery_test/refinery_test_1-1/0.1", 
-            "tool_state": "{\"__page__\": 0, \"stdout\": \"\\\"False\\\"\", \"input_file\": \"null\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"null\", \"stdout\": \"\\\"False\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
             "tool_version": "0.1", 
             "type": "tool", 
             "user_outputs": []
@@ -109,7 +109,7 @@
             "post_job_actions": {}, 
             "tool_errors": null, 
             "tool_id": "testtoolshed.g2.bx.psu.edu/repos/hackdna/refinery_test/refinery_test_1-1/0.1", 
-            "tool_state": "{\"__page__\": 0, \"stdout\": \"\\\"False\\\"\", \"input_file\": \"null\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"null\", \"stdout\": \"\\\"False\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
             "tool_version": "0.1", 
             "type": "tool", 
             "user_outputs": []
@@ -138,7 +138,7 @@
             "post_job_actions": {}, 
             "tool_errors": null, 
             "tool_id": "testtoolshed.g2.bx.psu.edu/repos/hackdna/refinery_test/refinery_test_1-1/0.1", 
-            "tool_state": "{\"__page__\": 0, \"stdout\": \"\\\"False\\\"\", \"input_file\": \"null\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"null\", \"stdout\": \"\\\"False\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
             "tool_version": "0.1", 
             "type": "tool", 
             "user_outputs": []
@@ -167,7 +167,7 @@
             "post_job_actions": {}, 
             "tool_errors": null, 
             "tool_id": "testtoolshed.g2.bx.psu.edu/repos/hackdna/refinery_test/refinery_test_1-1/0.1", 
-            "tool_state": "{\"__page__\": 0, \"stdout\": \"\\\"False\\\"\", \"input_file\": \"null\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"null\", \"stdout\": \"\\\"False\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
             "tool_version": "0.1", 
             "type": "tool", 
             "user_outputs": []
