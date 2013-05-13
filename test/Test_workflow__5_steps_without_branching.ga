@@ -1,0 +1,176 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "{\"refinery_type\": \"analysis\"}", 
+    "format-version": "0.1", 
+    "name": "Test workflow: 5 steps without branching", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 270
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {
+                "input_file": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Refinery test tool 1-1", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 404, 
+                "top": 248
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/hackdna/refinery_test/refinery_test_1-1/0.1", 
+            "tool_state": "{\"__page__\": 0, \"stdout\": \"\\\"False\\\"\", \"input_file\": \"null\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "input_file": {
+                    "id": 1, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Refinery test tool 1-1", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 623, 
+                "top": 251
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/hackdna/refinery_test/refinery_test_1-1/0.1", 
+            "tool_state": "{\"__page__\": 0, \"stdout\": \"\\\"False\\\"\", \"input_file\": \"null\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input_file": {
+                    "id": 2, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Refinery test tool 1-1", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 841, 
+                "top": 252
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/hackdna/refinery_test/refinery_test_1-1/0.1", 
+            "tool_state": "{\"__page__\": 0, \"stdout\": \"\\\"False\\\"\", \"input_file\": \"null\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Refinery test tool 1-1", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1053, 
+                "top": 254
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/hackdna/refinery_test/refinery_test_1-1/0.1", 
+            "tool_state": "{\"__page__\": 0, \"stdout\": \"\\\"False\\\"\", \"input_file\": \"null\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "5": {
+            "annotation": "{\"output_file\": {\"name\":\"test tool out\", \"description\":\"\", \"type\":\"txt\"}}", 
+            "id": 5, 
+            "input_connections": {
+                "input_file": {
+                    "id": 4, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Refinery test tool 1-1", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1271, 
+                "top": 257
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/hackdna/refinery_test/refinery_test_1-1/0.1", 
+            "tool_state": "{\"__page__\": 0, \"stdout\": \"\\\"False\\\"\", \"input_file\": \"null\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}
