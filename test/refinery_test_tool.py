@@ -29,8 +29,11 @@ def main(args):
     input = read_files(args.input_files)
     try:
         for out_file in args.output_files:
-            out_file.write("Output file name: " + out_file.name + "\n\n")
-            out_file.write(input)
+            if args.empty_outfile:
+                output = ''
+            else:
+                output = "Output file name: " + out_file.name + "\n\n" + input
+            out_file.write(output)
     except IOError as e:
         cleanup(args)
         parser.error(e)
@@ -104,6 +107,8 @@ if __name__ == '__main__':
                         help='write a message to stdout')
     parser.add_argument('--stderr', action='store_true',
                         help='write a message to stderr')
+    parser.add_argument('--empty_outfile', action='store_true',
+                        help='produce empty output file(s)')
     parser.add_argument('-p', '--p-fail', type=float, default=0.0,
                         help='probability of execution failure, default: %(default)s')
     parser.add_argument('-s', '--sleep', dest='seconds', type=int, default=0,

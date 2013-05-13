@@ -2,13 +2,14 @@
     <description>for testing Galaxy workflow execution from Refinery</description>
 
     <command interpreter="python">
-        refinery_test_tool.py -i $input_file1 $input_file2 -o $output_file1 $output_file2 $output_file3 $output_file4 $output_file5 $output_file6 -e $exit_code -p $p_fail -s $sleep_time $stdout $stderr
+        refinery_test_tool.py -i $input_file1 $input_file2 -o $output_file1 $output_file2 $output_file3 $output_file4 $output_file5 $output_file6 -e $exit_code -p $p_fail -s $sleep_time $stdout $stderr $empty_outfile
     </command>
 
     <inputs>
         <param name="input_file1" format="txt" type="data" label="Input file A"/>
         <param name="input_file2" format="txt" type="data" label="Input file B"/>
         <param name="sleep_time" type="integer" label="Sleep (seconds)" value="0" min="0"/>
+        <param name="empty_outfile" type="boolean" label="Produce empty output files" truevalue="--empty_outfile" falsevalue=""/>
         <param name="p_fail" type="float" label="Probability of failure [0.0, 1.0]" value="0.0" min="0.0" max="1.0"/>
         <param name="stdout" type="boolean" label="Write to standard out" truevalue="--stdout" falsevalue=""/>
         <param name="stderr" type="boolean" label="Write to standard error" truevalue="--stderr" falsevalue=""/>
