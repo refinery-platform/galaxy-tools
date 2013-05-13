@@ -40,7 +40,7 @@ To test Galaxy workflow execution and monitoring from Refinery.
 
 **Inputs and outputs**
 
-This wrapper will accept two text files as input and produce a single output file
+This wrapper will accept two text files as input and produce two output files
 with concatenated content from input files.
 
 *Note:* You must set the "Probability of failure" parameter to a non-zero value
