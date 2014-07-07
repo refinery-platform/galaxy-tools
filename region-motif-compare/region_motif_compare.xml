@@ -1,0 +1,21 @@
+<tool id="region_motif_compare" name="Region Motif Count Compare">
+  <description>for comparing the motif counts in different region sets</description>
+  <command interpreter="bash">
+    /usr/bin/R --slave --vanilla -f $GALAXY_ROOT_DIR/tools/my_tools/region_motif_compare.r --args $GALAXY_ROOT_DIR $in_tab_1 $in_tab_2 $out_enriched $out_depleted
+  </command>
+  <inputs>
+    <param name="in_tab_1" type="data" format="tabular" label="Region Set 1 Motif Count File"/>
+    <param name="in_tab_2" type="data" format="tabular" label="Region Set 2 Motif Count File"/>
+  </inputs>
+  <outputs>
+    <data name="out_enriched" format="tabular" label="Enriched Motifs"/>
+    <data name="out_depleted" format="tabular" label="Depleted Motifs"/>
+  </outputs>
+
+  <help>
+    This tools reads in two counts file and determines enriched and depleted
+    motifs in two different region sets based on poisson calculation with
+    gc correction.
+  </help>
+ 
+</tool>
