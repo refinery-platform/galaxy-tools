@@ -1,0 +1,149 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "{\n        \"refinery_type\": \"analysis\",\n        \"refinery_relationships\": [\n                {\n                        \"category\": \"1-1\",\n                        \"set1\": \"Region 1\",\n                        \"set2\": \"Region 2\"\n                }\n        ]\n}", 
+    "format-version": "0.1", 
+    "name": "Region Motif Count Comparison", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Region 1"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 207, 
+                "top": 226
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Region 1\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Region 2"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 206, 
+                "top": 360
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Region 2\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "{\n        \"out_tab\": {\n                \"name\": \"motifs_count_region_1\",\n                \"description\": \"Motif counts in region 1.\",\n                \"type\": \"tabular\"\n        }\n}", 
+            "id": 2, 
+            "input_connections": {
+                "in_bed": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Region Motif Intersect", 
+            "outputs": [
+                {
+                    "name": "out_tab", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 404, 
+                "top": 207
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "region_motif_intersect", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"in_bed\": \"null\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "3": {
+            "annotation": "{\n        \"out_tab\": {\n                \"name\": \"motifs_count_region_2\",\n                \"description\": \"Motif counts in region 2.\",\n                \"type\": \"tabular\"\n        }\n}", 
+            "id": 3, 
+            "input_connections": {
+                "in_bed": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Region Motif Intersect", 
+            "outputs": [
+                {
+                    "name": "out_tab", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 420, 
+                "top": 354
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "region_motif_intersect", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"in_bed\": \"null\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "4": {
+            "annotation": "{\n        \"out_enriched\": {\n                \"name\": \"motifs_enriched\",\n                \"description\": \"Motifs enriched in regions 1 versus regions 2.\",\n                \"type\": \"tabular\"\n        },\n        \"out_depleted\": {\n                \"name\": \"motifs_depleted\",\n                \"description\": \"Motifs depleted in regions 1 versus regions 2.\",\n                \"type\": \"tabular\"\n        }\n}", 
+            "id": 4, 
+            "input_connections": {
+                "in_tab_1": {
+                    "id": 2, 
+                    "output_name": "out_tab"
+                }, 
+                "in_tab_2": {
+                    "id": 3, 
+                    "output_name": "out_tab"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Region Motif Count Compare", 
+            "outputs": [
+                {
+                    "name": "out_enriched", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "out_depleted", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 637.5, 
+                "top": 252
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "region_motif_compare", 
+            "tool_state": "{\"in_tab_1\": \"null\", \"in_tab_2\": \"null\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}
