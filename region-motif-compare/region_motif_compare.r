@@ -15,6 +15,9 @@ concat <- function(...) {
   return(paste(input_list, sep="", collapse=""))
 }
 
+# Supress all warning messages to prevent Galaxy treating warnings as errors
+options(warn=-1)
+
 # Set common and data directories
 args <- commandArgs()
 workingDir = args[7]
