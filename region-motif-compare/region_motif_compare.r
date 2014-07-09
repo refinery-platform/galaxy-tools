@@ -18,7 +18,7 @@ concat <- function(...) {
 # Set common and data directories
 args <- commandArgs()
 workingDir = args[7]
-commonDir = "/Users/jeremyliu1/galaxy-dist/tools/my_tools"
+commonDir = concat(workingDir, "/tools/my_tools")
 pwmFile = concat(workingDir, "/tools/my_tools/region_motif_db/pouya.pwms.from.seq.RData")
 pwmFile2 = concat(workingDir, "/tools/my_tools/region_motif_db/jasparjolma..pwms.from.seq")
 

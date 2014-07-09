@@ -1,8 +1,9 @@
 
 # SHOULD ONLY OCCUR IN ONE FILE
-common.dir = "/Users/jeremyliu1/galaxy-dist/tools/my_tools"
+#common.dir = "/Users/jeremyliu1/galaxy-dist/tools/my_tools"
 
-dyn.load(paste(common.dir,"/region_motif_lib/regions.so",sep=""))
+# commonDir from region_motif_intersect.r file
+dyn.load(paste(commonDir, "/region_motif_lib/regions.so",sep=""))
 
 ##reg = matrix(cbind(from,to)) from<to
 ##region[[chr]] = reg

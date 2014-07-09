@@ -17,8 +17,8 @@ concat <- function(...) {
 # Set common and data directories
 args <- commandArgs()
 workingDir = args[7]
-commonDir = "/Users/jeremyliu1/galaxy-dist/tools/my_tools"
-motifDB = concat(workingDir, "/tools/my_tools/region_motif_db/pouya")
+commonDir = concat(workingDir, "/tools/my_tools")
+motifDB = concat(workingDir, "/tools/my_tools/region_motif_db/pouya_test_dir")
 #motifDB = concat(workingDir, "/tools/my_tools/region_motif_db/JolmaJaspar")
 
 # Set input and reference files, comment to toggle commmand line arguments
