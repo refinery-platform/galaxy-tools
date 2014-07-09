@@ -1,10 +1,16 @@
 <tool id="region_motif_intersect" name="Region Motif Intersect">
   <description>for computing the motifs that lie inside a region set</description>
   <command interpreter="bash">
-    /usr/bin/R --slave --vanilla -f $GALAXY_ROOT_DIR/tools/my_tools/region_motif_intersect.r --args $GALAXY_ROOT_DIR $in_bed $out_tab
+    /usr/bin/R --slave --vanilla -f $GALAXY_ROOT_DIR/tools/my_tools/region_motif_intersect.r --args $GALAXY_ROOT_DIR $db_type $in_bed $out_tab
   </command>
   <inputs>
-    <param name="in_bed" type="data" format="bed" label="Input BED File"/>
+    <param name="in_bed" type="data" format="bed" label="Input BED File" />
+    <param name="db_type" type="select" label="Select Motif Database" >
+      <option value="t">Test (Pouya Subset)</option>
+      <option value="p">Pouya (Encode Motifs hg19)</option>
+      <option value="j">Jaspar and Jolma Motifs (hg19)</option>
+      <option value="m">Mouse Motifs (mm9)</option>
+    </param>
   </inputs>
   <outputs>
     <data name="out_tab" format="tabular" />

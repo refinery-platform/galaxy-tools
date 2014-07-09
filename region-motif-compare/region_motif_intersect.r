@@ -5,7 +5,7 @@
 # Email: jeremy.liu@yale.edu
 # Date: 14/07/02
 # Note: This script is meant to be invoked with the following command
-# R --slave --vanilla -f ./region_motif_intersect.r --args <workingdir> <inbed> <outtab>
+# R --slave --vanilla -f ./region_motif_intersect.r --args <workingdir> <db> <inbed> <outtab>
 # Dependencies: regions.r
 
 # Auxiliary function to concatenate multiple strings
@@ -18,12 +18,22 @@ concat <- function(...) {
 args <- commandArgs()
 workingDir = args[7]
 commonDir = concat(workingDir, "/tools/my_tools")
-motifDB = concat(workingDir, "/tools/my_tools/region_motif_db/pouya_test_dir")
-#motifDB = concat(workingDir, "/tools/my_tools/region_motif_db/JolmaJaspar")
+dbCode = args[8]
+if (dbCode == "t") {
+  motifDB = concat(commonDir, "/region_motif_db/pouya_test_dir")
+} else if (dbCode == "p") {
+  motifDB = concat(commonDir, "/region_motif_db/pouya")
+} else if (dbCode == "j") {
+  motifDB = concat(commonDir, "/region_motif_db/JolmaJaspar")
+} else if (dbCode == "m") {
+  motifDB = concat(commonDir, "/NOT_DEFINED_YET")
+} else {
+  motifDB = concat(commonDir, "/region_motif_db/pouya")
+}
 
 # Set input and reference files, comment to toggle commmand line arguments
-inBed = args[8]
-outTab = args[9]
+inBed = args[9]
+outTab = args[10]
 
 # Load dependencies
 source(concat(commonDir, "/region_motif_lib/regions.r"))

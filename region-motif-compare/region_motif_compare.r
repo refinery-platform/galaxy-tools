@@ -6,7 +6,7 @@
 # Email: jeremy.liu@yale.edu
 # Date: 14/07/03
 # Note: This script is meant to be invoked with the following command
-# R --slave --vanilla -f ./enhancer_motif_compare.r --args <intab1> <intab2> <enriched_tab> <depleted_tab>
+# R --slave --vanilla -f ./enhancer_motif_compare.r --args <db> <intab1> <intab2> <enriched_tab> <depleted_tab>
 # Dependencies: plotting.r
 
 # Auxiliary function to concatenate multiple strings
@@ -22,14 +22,22 @@ options(warn=-1)
 args <- commandArgs()
 workingDir = args[7]
 commonDir = concat(workingDir, "/tools/my_tools")
-pwmFile = concat(workingDir, "/tools/my_tools/region_motif_db/pouya.pwms.from.seq.RData")
-pwmFile2 = concat(workingDir, "/tools/my_tools/region_motif_db/jasparjolma..pwms.from.seq")
+dbCode = args[8]
+if (dbCode == "t" | dbCode == "p") {
+  pwmFile = concat(commonDir, "/region_motif_db/pouya.pwms.from.seq.RData")
+} else if (dbCode == "j") {
+  pwmFile = concat(commonDir, "/region_motif_db/jasparjolma..pwms.from.seq")
+} else if (dbCode == "m") {
+  pwmFile = concat(commonDir, "/NOT_DEFINED_YET")
+} else {
+  pwmFile = concat(commonDir, "/region_motif_db/pouya.pwms.from.seq.RData")
+}
 
 # Set input and reference files
-inTab1 = args[8]
-inTab2 = args[9]
-enrichTab = args[10]
-depleteTab = args[11]
+inTab1 = args[9]
+inTab2 = args[10]
+enrichTab = args[11]
+depleteTab = args[12]
 
 # Load dependencies
 source(concat(commonDir, "/region_motif_lib/plotting.r"))
