@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true", 
     "annotation": "{\n        \"refinery_type\": \"analysis\",\n        \"refinery_relationships\": [\n                {\n                        \"category\": \"1-1\",\n                        \"set1\": \"Region 1\",\n                        \"set2\": \"Region 2\"\n                }\n        ]\n}", 
     "format-version": "0.1", 
-    "name": "Region Motif Count Comparison", 
+    "name": "Region Motif Count Comparison Jaspar Jolma Motifs", 
     "steps": {
         "0": {
             "annotation": "", 
@@ -97,8 +97,8 @@
                 }
             ], 
             "position": {
-                "left": 420, 
-                "top": 354
+                "left": 424, 
+                "top": 352
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -134,8 +134,8 @@
                 }
             ], 
             "position": {
-                "left": 637.5, 
-                "top": 252
+                "left": 644.5, 
+                "top": 258
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
