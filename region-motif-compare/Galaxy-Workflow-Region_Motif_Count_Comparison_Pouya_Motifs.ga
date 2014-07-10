@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true", 
     "annotation": "{\n        \"refinery_type\": \"analysis\",\n        \"refinery_relationships\": [\n                {\n                        \"category\": \"1-1\",\n                        \"set1\": \"Region 1\",\n                        \"set2\": \"Region 2\"\n                }\n        ]\n}", 
     "format-version": "0.1", 
-    "name": "Region Motif Count Comparison Test Motifs", 
+    "name": "Region Motif Count Comparison Pouya Motifs", 
     "steps": {
         "0": {
             "annotation": "", 
@@ -17,8 +17,8 @@
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 207, 
-                "top": 226
+                "left": 206.98611497879028, 
+                "top": 225.97918057441711
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -40,8 +40,8 @@
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 206, 
-                "top": 360
+                "left": 205.9791874885559, 
+                "top": 359.98958706855774
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -68,8 +68,8 @@
                 }
             ], 
             "position": {
-                "left": 404, 
-                "top": 207
+                "left": 403.98266649246216, 
+                "top": 206.98612332344055
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -97,8 +97,8 @@
                 }
             ], 
             "position": {
-                "left": 424, 
-                "top": 352
+                "left": 423.98266649246216, 
+                "top": 351.9861385822296
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -109,7 +109,7 @@
             "user_outputs": []
         }, 
         "4": {
-            "annotation": "{\n        \"out_enriched\": {\n                \"name\": \"motifs_enriched\",\n                \"description\": \"Motifs enriched in regions 1 versus regions 2.\",\n                \"type\": \"tabular\"\n        },\n        \"out_depleted\": {\n                \"name\": \"motifs_depleted\",\n                \"description\": \"Motifs depleted in regions 1 versus regions 2.\",\n                \"type\": \"tabular\"\n        }\n}", 
+            "annotation": "{\n        \"out_enriched\": {\n                \"name\": \"motifs_enriched\",\n                \"description\": \"Motifs enriched in regions 1 versus regions 2.\",\n                \"type\": \"tabular\"\n        },\n        \"out_depleted\": {\n                \"name\": \"motifs_depleted\",\n                \"description\": \"Motifs depleted in regions 1 versus regions 2.\",\n                \"type\": \"tabular\"\n        },\n       \"out_plots\": {\n                \"name\": \"motif_counts_plots\",\n                \"description\": \"Summary plots for motifs in regions 1 versus regions 2.\",\n                \"type\": \"png\"\n        }\n}", 
             "id": 4, 
             "input_connections": {
                 "in_tab_1": {
@@ -131,11 +131,15 @@
                 {
                     "name": "out_depleted", 
                     "type": "tabular"
+                }, 
+                {
+                    "name": "out_plots", 
+                    "type": "png"
                 }
             ], 
             "position": {
-                "left": 637.5, 
-                "top": 252
+                "left": 637.4931030273438, 
+                "top": 251.98958659172058
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 

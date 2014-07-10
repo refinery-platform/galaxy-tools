@@ -6,6 +6,8 @@
 # Date: 14/07/02
 # Note: This script is meant to be invoked with the following command
 # R --slave --vanilla -f ./region_motif_intersect.r --args <workingdir> <db> <inbed> <outtab>
+# <workingdir> is working directory of galaxy installation
+# <db> types: "t" test, "p" pouya, "j" jaspar jolma, "m" mouse
 # Dependencies: regions.r
 
 # Auxiliary function to concatenate multiple strings

@@ -1,6 +1,6 @@
 {
     "a_galaxy_workflow": "true", 
-    "annotation": "{\n        \"refinery_type\": \"analysis\",\n        \"refinery_relationships\": [\n                {\n                        \"category\": \"1-1\",\n                        \"set1\": \"Region 1\",\n                        \"set2\": \"Region 2\"\n                }\n        ]\n}", 
+    "annotation": "{         \"refinery_type\": \"analysis\",         \"refinery_relationships\": [                 {                         \"category\": \"1-1\",                         \"set1\": \"Region 1\",                         \"set2\": \"Region 2\"                 }         ] }", 
     "format-version": "0.1", 
     "name": "Region Motif Count Comparison Jaspar Jolma Motifs", 
     "steps": {
@@ -17,8 +17,8 @@
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 207, 
-                "top": 226
+                "left": 199.9236068725586, 
+                "top": 215.98265075683594
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -40,8 +40,8 @@
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 206, 
-                "top": 360
+                "left": 197.90624284744263, 
+                "top": 393.0104374885559
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -68,13 +68,13 @@
                 }
             ], 
             "position": {
-                "left": 404, 
-                "top": 207
+                "left": 402.2291798591614, 
+                "top": 199.85070848464966
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
             "tool_id": "region_motif_intersect", 
-            "tool_state": "{\"__page__\": 0, \"db_type\": \"\\\"j\\\"\", \"in_bed\": \"null\", \"__rerun_remap_job_id__\": null}", 
+            "tool_state": "{\"__page__\": 0, \"db_type\": \"\\\"t\\\"\", \"in_bed\": \"null\", \"__rerun_remap_job_id__\": null}", 
             "tool_version": "1.0.0", 
             "type": "tool", 
             "user_outputs": []
@@ -97,19 +97,19 @@
                 }
             ], 
             "position": {
-                "left": 424, 
-                "top": 352
+                "left": 413.2187428474426, 
+                "top": 390.84030199050903
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
             "tool_id": "region_motif_intersect", 
-            "tool_state": "{\"__page__\": 0, \"db_type\": \"\\\"j\\\"\", \"in_bed\": \"null\", \"__rerun_remap_job_id__\": null}", 
+            "tool_state": "{\"__page__\": 0, \"db_type\": \"\\\"t\\\"\", \"in_bed\": \"null\", \"__rerun_remap_job_id__\": null}", 
             "tool_version": "1.0.0", 
             "type": "tool", 
             "user_outputs": []
         }, 
         "4": {
-            "annotation": "{\n        \"out_enriched\": {\n                \"name\": \"motifs_enriched\",\n                \"description\": \"Motifs enriched in regions 1 versus regions 2.\",\n                \"type\": \"tabular\"\n        },\n        \"out_depleted\": {\n                \"name\": \"motifs_depleted\",\n                \"description\": \"Motifs depleted in regions 1 versus regions 2.\",\n                \"type\": \"tabular\"\n        }\n}", 
+            "annotation": "{\n        \"out_enriched\": {\n                \"name\": \"motifs_enriched\",\n                \"description\": \"Motifs enriched in regions 1 versus regions 2.\",\n                \"type\": \"tabular\"\n        },\n        \"out_depleted\": {\n                \"name\": \"motifs_depleted\",\n                \"description\": \"Motifs depleted in regions 1 versus regions 2.\",\n                \"type\": \"tabular\"\n        },\n        \"out_plots\": {\n                \"name\": \"motif_counts_plots\",\n                \"description\": \"Summary plots for motifs in regions 1 versus regions 2.\",\n                \"type\": \"png\"\n        }\n}", 
             "id": 4, 
             "input_connections": {
                 "in_tab_1": {
@@ -131,11 +131,15 @@
                 {
                     "name": "out_depleted", 
                     "type": "tabular"
+                }, 
+                {
+                    "name": "out_plots", 
+                    "type": "png"
                 }
             ], 
             "position": {
-                "left": 652.5, 
-                "top": 264
+                "left": 643.6528248786926, 
+                "top": 283.73959398269653
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 

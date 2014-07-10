@@ -1,0 +1,277 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "{\n        \"refinery_type\": \"analysis\",\n        \"refinery_relationships\": [\n                {\n                        \"category\": \"1-1\",\n                        \"set1\": \"Region 1\",\n                        \"set2\": \"Region 2\"\n                }\n        ]\n}", 
+    "format-version": "0.1", 
+    "name": "Region Motif Count Comparison Combined Motifs", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Region 1"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 153.73957872390747, 
+                "top": 193.73959398269653
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Region 1\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Region 2"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 158.68751573562622, 
+                "top": 417.69794511795044
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Region 2\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "in_bed": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Region Motif Intersect", 
+            "outputs": [
+                {
+                    "name": "out_tab", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 391.7256932258606, 
+                "top": 144.71181535720825
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "region_motif_intersect", 
+            "tool_state": "{\"__page__\": 0, \"db_type\": \"\\\"p\\\"\", \"in_bed\": \"null\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "in_bed": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Region Motif Intersect", 
+            "outputs": [
+                {
+                    "name": "out_tab", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 385.6146092414856, 
+                "top": 253.63542985916138
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "region_motif_intersect", 
+            "tool_state": "{\"__page__\": 0, \"db_type\": \"\\\"j\\\"\", \"in_bed\": \"null\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "in_bed": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Region Motif Intersect", 
+            "outputs": [
+                {
+                    "name": "out_tab", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 390.7187352180481, 
+                "top": 369.72919511795044
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "region_motif_intersect", 
+            "tool_state": "{\"__page__\": 0, \"db_type\": \"\\\"p\\\"\", \"in_bed\": \"null\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "in_bed": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Region Motif Intersect", 
+            "outputs": [
+                {
+                    "name": "out_tab", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 393.6874852180481, 
+                "top": 490.7014241218567
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "region_motif_intersect", 
+            "tool_state": "{\"__page__\": 0, \"db_type\": \"\\\"j\\\"\", \"in_bed\": \"null\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "out_tab"
+                }, 
+                "queries_0|input2": {
+                    "id": 3, 
+                    "output_name": "out_tab"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Concatenate datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 649.4340672492981, 
+                "top": 198.9652943611145
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "cat1", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input1\": \"null\", \"queries\": \"[{\\\"input2\\\": null, \\\"__index__\\\": 0}]\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "input1": {
+                    "id": 4, 
+                    "output_name": "out_tab"
+                }, 
+                "queries_0|input2": {
+                    "id": 5, 
+                    "output_name": "out_tab"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Concatenate datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 654.4687962532043, 
+                "top": 410.99655961990356
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "cat1", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input1\": \"null\", \"queries\": \"[{\\\"input2\\\": null, \\\"__index__\\\": 0}]\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "8": {
+            "annotation": "{\n        \"out_enriched\": {\n                \"name\": \"motifs_enriched\",\n                \"description\": \"Motifs enriched in regions 1 versus regions 2.\",\n                \"type\": \"tabular\"\n        },\n        \"out_depleted\": {\n                \"name\": \"motifs_depleted\",\n                \"description\": \"Motifs depleted in regions 1 versus regions 2.\",\n                \"type\": \"tabular\"\n        },\n        \"out_plots\": {\n                \"name\": \"motif_counts_plots\",\n                \"description\": \"Summary plots for motifs in regions 1 versus regions 2.\",\n                \"type\": \"png\"\n        }\n}", 
+            "id": 8, 
+            "input_connections": {
+                "in_tab_1": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }, 
+                "in_tab_2": {
+                    "id": 7, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Region Motif Count Compare", 
+            "outputs": [
+                {
+                    "name": "out_enriched", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "out_depleted", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "out_plots", 
+                    "type": "png"
+                }
+            ], 
+            "position": {
+                "left": 904.2639007568359, 
+                "top": 285.75696563720703
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "region_motif_compare", 
+            "tool_state": "{\"in_tab_1\": \"null\", \"db_type\": \"\\\"c\\\"\", \"__rerun_remap_job_id__\": null, \"in_tab_2\": \"null\", \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}
