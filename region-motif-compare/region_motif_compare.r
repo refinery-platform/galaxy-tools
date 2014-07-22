@@ -34,8 +34,8 @@ if (dbCode == "t" | dbCode == "p") {
 } else if (dbCode == "m") {
 	pwmFile = concat(commonDir, "/NOT_DEFINED_YET")
 } else if (dbCode == "c") { # rest of dbCode "c" implemeted when pwmFile loaded
-  pwmFile = concat(commonDir, "/region_motif_db/pouya.pwms.from.seq.RData")
-  pwmFile2 = concat(commonDir, "/region_motif_db/jasparjolma..pwms.from.seq")
+	pwmFile = concat(commonDir, "/region_motif_db/pouya.pwms.from.seq.RData")
+	pwmFile2 = concat(commonDir, "/region_motif_db/jasparjolma..pwms.from.seq")
 } else {
 	pwmFile = concat(commonDir, "/region_motif_db/pouya.pwms.from.seq.RData")
 }
@@ -88,9 +88,9 @@ cat("Running ... Started at:", format(startTime, "%a %b %d %X %Y"), "...\n")
 cat("Loading and reading input region motif count files...\n")
 load(pwmFile) # pwms data structure
 if (dbCode == "c") { # Remaining implementation of dbCode "c" combined 
-  temp = pwms
-  load(pwmFile2)
-  pwms = append(temp, pwms)
+	temp = pwms
+	load(pwmFile2)
+	pwms = append(temp, pwms)
 }
 region1DF = read_tsv(inTab1)
 region2DF = read_tsv(inTab2)
@@ -98,6 +98,22 @@ region1Counts = region1DF$counts
 region2Counts = region2DF$counts
 names(region1Counts) = region1DF$motif
 names(region2Counts) = region2DF$motif
+
+# Processing count vectors to account for missing 0 count motifs, then sorting
+cat("Performing 0 count correction and sorting...\n")
+allNames = union(names(region1Counts), names(region2Counts))
+region1Diff = setdiff(allNames, names(region1Counts))
+region2Diff = setdiff(allNames, names(region2Counts))
+addCounts1 = rep(0, length(region1Diff))
+addCounts2 = rep(0, length(region2Diff))
+names(addCounts1) = region1Diff
+names(addCounts2) = region2Diff
+newCounts1 = append(region1Counts, addCounts1)
+newCounts2 = append(region2Counts, addCounts2)
+sortCounts1 = newCounts1[sort.int(names(newCounts1), index.return=TRUE)$ix]
+sortCounts2 = newCounts2[sort.int(names(newCounts2), index.return=TRUE)$ix]
+region1Counts = sortCounts1
+region2Counts = sortCounts2
 
 # Generate gc content matrix
 gc = sapply(pwms, function(i) mean(i[2:3,3:18]))
@@ -121,14 +137,14 @@ par(mar=c(5, 5, 5, 1))
 
 # Plot all motif counts along the linear correlation coefficient
 plot.scatter(region1Counts+0.5, region2Counts+0.5, log="xy", xlab=xlab, ylab=ylab,
-             cex.lab=2.2, cex.axis=1.8, xlim=lim, ylim=lim*rValue)
+						 cex.lab=2.2, cex.axis=1.8, xlim=lim, ylim=lim*rValue)
 abline(0, rValue, untf=T)
 abline(0, rValue*2, untf=T, lty=2)
 abline(0, rValue/2, untf=T, lty=2)
-  
+	
 # Plot enriched and depleted motifs in red, housed in second plot    
 plot.scatter(region1Counts+0.5, region2Counts+0.5, log="xy", xlab=xlab, ylab=ylab,
-             cex.lab=2.2, cex.axis=1.8, xlim=lim, ylim=lim*rValue)
+						 cex.lab=2.2, cex.axis=1.8, xlim=lim, ylim=lim*rValue)
 points(region1Counts[indices]+0.5, region2Counts[indices]+0.5, col="red")
 abline(0, rValue, untf=T)
 abline(0, rValue*2, untf=T, lty=2)
@@ -152,10 +168,10 @@ indicesGC = which(qValueGC<0.1 & abs(log2(region1Counts/region2Counts*gcCorrecti
 
 # Plot gc corrected motif counts 
 plot.scatter(region1Counts+0.5, (region2Counts+0.5)/gcCorrection, log="xy", 
-             xlab=xlab, ylab=paste(ylab,"(normalized)"), cex.lab=2.2, cex.axis=1.8,
-             xlim=lim, ylim=lim)
+						 xlab=xlab, ylab=paste(ylab,"(normalized)"), cex.lab=2.2, cex.axis=1.8,
+						 xlim=lim, ylim=lim)
 points(region1Counts[indicesGC]+0.5, 
-       (region2Counts[indicesGC]+0.5)/gcCorrection[indicesGC], col="red")
+			 (region2Counts[indicesGC]+0.5)/gcCorrection[indicesGC], col="red")
 abline(0,1)
 abline(0,1*2,untf=T,lty=2)
 abline(0,1/2,untf=T,lty=2)
@@ -172,22 +188,6 @@ if(length(indicesGC) > 0) {
 	# Reorder selected indices in ascending pvalue
 	cat("Reordering by ascending pvalue...\n")
 	indicesReorder = indicesGC[order(pValueGC[indicesGC])]
-
-	# Loop through and find repeated or similar motifs, determined by pwm gc content
-	# This is used for inserting motif diagrams into output
-	# cat("Finding repeated or similar motif pwms...\n")
-	# pwm = pwms[indicesReorder]
-	# similarExists = rep(F,length(indicesReorder))
-	# if(length(indicesReorder)>1) {
-	#   for(i in 2:length(indicesReorder)) {
-	#     for(j in 1:(i-1)) {
-	#       if(pwm.cors(pwm[[i]],pwm[[j]])>0.8) {
-	#         similarExists[i]=T
-	#         break
-	#       }
-	#     }
-	#   }
-	# }
 
 	# Combine data into one data frame and output to two files
 	cat("Splitting and outputting data...\n")
