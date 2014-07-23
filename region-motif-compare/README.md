@@ -1,4 +1,4 @@
-### Region-Motif-Compare Tools
+# Region-Motif-Compare Tools
 
 ## Overview and Structure
 
@@ -21,6 +21,9 @@ following gcc commands to compile the shared library.
 5) In region_motif_compare.r and region_motif_intersect.r you may have to
 adjust the file paths of commonDir or workingDir if it complains at you.
 
-## Run Commands and Examples
+## Running the Tools
+### Running as Command Line Tools
+
+### Running from Galaxy and Refinery
 
 ## Motif Tabix File Creation
