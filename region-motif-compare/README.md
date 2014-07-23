@@ -1,3 +1,8 @@
+### Region-Motif-Compare Tools
+
+## Overview and Structure
+
+## Installation
 Directions for installing the region motif tools into your local galaxy distribution
 
 1) In ~/galaxy-dist/tools/ make a directory called "my_tools" and cd into it
@@ -9,7 +14,13 @@ Directions for installing the region motif tools into your local galaxy distribu
   </section>
 4) In ~/galaxy-dist/tools/my_tools/region_motif_lib/ you will have to run the 
 following gcc commands to compile the shared library.
+```
   gcc  -I/usr/local/include -fPIC  -g -O2 -c regions.cpp -o regions.o
   gcc  -shared -o regions.so regions.o -L/usr/lib64/R/lib -lR -lstdc++
+```
 5) In region_motif_compare.r and region_motif_intersect.r you may have to
 adjust the file paths of commonDir or workingDir if it complains at you.
+
+## Run Commands and Examples
+
+## Motif Tabix File Creation
