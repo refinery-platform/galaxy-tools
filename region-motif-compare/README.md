@@ -61,6 +61,7 @@ or alternatively named directory, but remember to update tool_conf.xml to reflec
     mkdir my_tools
     cd my_tools
     ````
+
 4. Copy over ".r" and ".xml" files, as well as region_motif_db and region_motif_lib
     ````
     cd refinery-galaxy-tools/region-motif-compare
@@ -69,6 +70,7 @@ or alternatively named directory, but remember to update tool_conf.xml to reflec
     cp -r region_motif_db ~/galaxy-dist/tools/my_tools
     cp -r region_motif_lib ~/galaxy-dist/tools/my_tools
     ````
+    
 5. Edit ~/galaxy-dist/tool_conf.xml to reflect the addition of the new tools.
 Add the following lines within the `<toolbox>` tags.
     ````
