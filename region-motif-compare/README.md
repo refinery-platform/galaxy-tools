@@ -1,21 +1,40 @@
 # Region-Motif-Compare Tools
-Version 1.1  
-Released 2014  
+Version 1.1 Released 2014  
 Park Laboratory  
 Center for Biomedical Informatics  
 Harvard University  
 
-### Contact
+Contact:  
 Jeremy Liu (jeremy.liu@yale.edu)  
 Nils Gehlenborg (nils@hms.harvard.edu)
 
 ## Overview
 ### Structure
-The tool suite consists of two main Rscripts (region_motif_compare.r and region_motif_intersect.r)
+The tool suite consists of:  
+Two Main Rscripts -region_motif_compare.r and region_motif_intersect.r  
+Two Xml Files - region_motif_compare.xml and region_motif_intersect.xml  
+Motif Database Directory - region_motif_db  
+Dependency Library Directory - region_motif_lib  
+Galaxy Workflows - Galaxy-Workflow-Region_Motif_Count_Comparison_Test_Motifs.ga  
 
 ### Description
+region_motif_intersect.r takes one bed file of regions as input. Then it calculates
+the number of intersections of the regions and the motifs. region_motifs_intersect.r
+outputs a tab separated values (tsv) file of motif names and intersection counts.
 
+region_motif_compare.r takes as input two tsv files of motifs / regions intersection
+counts. These generally originate from running region_motif_intersect.r on two sets
+of different regions with the same query motif database. Based on the counts, 
+region_motif_compare.r then determines the enrichment (or depletion) of certain
+motifs across the two regions. This is done by a correcting for the size and gc
+content of the region, and applying a Poisson test to the counts. 
+Then, region_motif_compare.r outputs the most significant enriched or depleted
+motifs as a tsv. In addition, the tool outputs a diagnostic plot containing
+graphical representations of the motif counts, gc correction curves, and significant 
+motifs that distinguish the two regions (selected via p value).
 
+Motif positions are stored in region_motif_db as compressed, index tabix files.  
+Dependencies (i.e. plotting.r) are stored in region_motif_lib.
 
 ## Installation
 Directions for installing the region motif tools into your local galaxy distribution
@@ -37,8 +56,8 @@ following gcc commands to compile the shared library.
 adjust the file paths of commonDir or workingDir if it complains at you.
 
 ## Running the Tools
-### Running as Command Line Tools
-
 ### Running from Galaxy and Refinery
+
+### Running as Command Line Tools
 
 ## Motif Tabix File Creation
