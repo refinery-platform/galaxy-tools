@@ -42,11 +42,12 @@ motifs that distinguish the two regions (selected via p value).
 4. **region_motif_lib**: Contains dependencies (i.e. plotting.r) for region_motif_compare.r
 
 ## Installation
-Directions for installing the region-motif-compare tools into a personal computer,
-local Galaxy instance, and local Refinery instance.
+Directions for installing the region-motif-compare tools into a personal computer
+and a local Galaxy instance.
 
 1. Follow the online directions to install a local instance of Galaxy (getgalaxy.org).
-In addition, follow the directions to install Refinery (refinery-platform.readthedocs.org)
+Optionally, follow the directions to install Refinery (refinery-platform.readthedocs.org)
+
 2. Clone the github repository to your local computer
     ````
     git clone https://github.com/parklab/refinery-galaxy-tools.git
@@ -62,7 +63,7 @@ or alternatively named directory, but remember to update tool_conf.xml to reflec
     cd my_tools
     ````
 
-4. Copy over ".r" and ".xml" files, as well as region_motif_db and region_motif_lib
+4. Copy over ".r" and ".xml" files, as well as `region_motif_db` and `region_motif_lib`
     ````
     cd refinery-galaxy-tools/region-motif-compare
     cp *.r ~/galaxy-dist/tools/my_tools
@@ -70,8 +71,8 @@ or alternatively named directory, but remember to update tool_conf.xml to reflec
     cp -r region_motif_db ~/galaxy-dist/tools/my_tools
     cp -r region_motif_lib ~/galaxy-dist/tools/my_tools
     ````
-    
-5. Edit ~/galaxy-dist/tool_conf.xml to reflect the addition of the new tools.
+
+5. Edit `~/galaxy-dist/tool_conf.xml` to reflect the addition of the new tools.
 Add the following lines within the `<toolbox>` tags.
     ````
     <section id="mTools" name="My Tools">  
@@ -80,14 +81,28 @@ Add the following lines within the `<toolbox>` tags.
     </section>
     ````
 
-4) In ~/galaxy-dist/tools/my_tools/region_motif_lib/ you will have to run the 
-following gcc commands to compile the shared library.
-```
-  gcc  -I/usr/local/include -fPIC  -g -O2 -c regions.cpp -o regions.o
-  gcc  -shared -o regions.so regions.o -L/usr/lib64/R/lib -lR -lstdc++
-```
-5) In region_motif_compare.r and region_motif_intersect.r you may have to
-adjust the file paths of commonDir or workingDir if it complains at you.
+6. Download the motif databases and place them into `region_motif_db`
+    ````
+    cd ~/galaxy-dist/tools/my_tools/region_motif_db
+    wget ????/pouya_motifs.bed.bgz
+    wget ????/pouya_motifs.bed.bgz.tbi
+    wget ????/jaspar_jolma_motifs.bed.bgz
+    wget ????/jaspar_jolma_motifs.bed.bgz.tbi
+    wget ????/mm9_motifs.bed.bgz
+    wget ????/mm9_motifs.bed.bgz.tbi
+    ````
+
+7. If in Step 3 you copied the tools to an existing directory or an alternatively
+named directory, you must edit the following file paths.  
+    In `region_motif_intersect.r` and `region_motif_compare.r` edit `commonDir`:  
+    ````
+    # Replace this line
+    commonDir = concat(workingDir, "/tools/my_tools")
+    # With this edited line
+    commonDir = concat(workingDir, "<relative_path_from_galaxy_root>/<tool_directory>")
+    ````
+
+
 
 ## Running the Tools
 ### Running from Galaxy and Refinery
