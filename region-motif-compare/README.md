@@ -1,14 +1,14 @@
 # Region-Motif-Compare Tools
 ### Information
-Version 1.1
-Released 2014
-Park Laboratory
-Center for Biomedical Informatics
-Harvard University
+Version 1.1  
+Released 2014  
+Park Laboratory  
+Center for Biomedical Informatics  
+Harvard University  
 
 ### Contact
 Jeremy Liu (jeremy.liu@yale.edu)
-Nils Gehlenb0rg (nils@hms.harvard.edu)
+Nils Gehlenborg (nils@hms.harvard.edu)
 
 ## Overview
 ### Structure
