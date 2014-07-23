@@ -1,5 +1,4 @@
 # Region-Motif-Compare Tools
-### Information
 Version 1.1  
 Released 2014  
 Park Laboratory  
@@ -7,11 +6,12 @@ Center for Biomedical Informatics
 Harvard University  
 
 ### Contact
-Jeremy Liu (jeremy.liu@yale.edu)
+Jeremy Liu (jeremy.liu@yale.edu)  
 Nils Gehlenborg (nils@hms.harvard.edu)
 
 ## Overview
 ### Structure
+The tool suite consists of two main Rscripts (region_motif_compare.r and region_motif_intersect.r)
 
 ### Description
 
