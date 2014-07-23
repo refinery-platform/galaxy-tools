@@ -48,10 +48,10 @@ local Galaxy instance, and local Refinery instance.
 1. Follow the online directions to install a local instance of Galaxy (getgalaxy.org).
 In addition, follow the directions to install Refinery (refinery-platform.readthedocs.org)
 2. Clone the github repository to your local computer
-````
-git clone https://github.com/parklab/refinery-galaxy-tools.git
-cd refinery-galaxy-tools/region-motif-compare
-````
+    ````
+    git clone https://github.com/parklab/refinery-galaxy-tools.git
+    cd refinery-galaxy-tools/region-motif-compare
+    ````
 
 3. Make a directory for the tools in Galaxy instance. This serves as a category
 for the tool in the tools sidebar. You can also place the tools in an existing
