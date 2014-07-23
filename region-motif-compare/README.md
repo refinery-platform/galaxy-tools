@@ -16,7 +16,8 @@ The tool suite consists of:
 2. Two Xml Files: region_motif_compare.xml and region_motif_intersect.xml
 3. Motif Database Directory: region_motif_db
 4. Dependency Library Directory: region_motif_lib
-5. Galaxy Workflows: Galaxy-Workflow-Region_Motif_Count_Comparison_Test_Motifs.ga
+5. Galaxy Workflows: Files with suffix ".ga" that can be imported into the local
+Galaxy instance after installation of the tool.
 
 ### Description
 1. **region_motif_intersect.r** (1 bed -> 1 tsv): 
@@ -41,15 +42,41 @@ motifs that distinguish the two regions (selected via p value).
 4. **region_motif_lib**: Contains dependencies (i.e. plotting.r) for region_motif_compare.r
 
 ## Installation
-Directions for installing the region motif tools into your local galaxy distribution
+Directions for installing the region-motif-compare tools into a personal computer,
+local Galaxy instance, and local Refinery instance.
 
-1) In ~/galaxy-dist/tools/ make a directory called "my_tools" and cd into it
-2) Clone the relevant files from the github into the directory
-3) In ~/galaxy-dist/tool_conf.xml add the following lines:
+0. Follow the online directions to install a local instance of Galaxy (getgalaxy.org).
+In addition, follow the directions to install Refinery (refinery-platform.readthedocs.org)
+1. Clone the github repository to your local computer
+````
+git clone https://github.com/parklab/refinery-galaxy-tools.git
+cd refinery-galaxy-tools/region-motif-compare
+````
+2. Make a directory for the tools in Galaxy instance. This serves as a category
+for the tool in the tools sidebar. You can also place the tools in an existing
+or alternatively named directory, but remember to update tool_conf.xml to reflect this.
+````
+cd ~/galaxy-dist/tools/
+mkdir my_tools
+cd my_tools
+````
+3. Copy over ".r" and ".xml" files, as well as region_motif_db and region_motif_lib
+````
+cd refinery-galaxy-tools/region-motif-compare
+cp *.r ~/galaxy-dist/tools/my_tools
+cp *.xml ~/galaxy-dist/tools/my_tools
+cp -r region_motif_db ~/galaxy-dist/tools/my_tools
+cp -r region_motif_lib ~/galaxy-dist/tools/my_tools
+````
+4. Edit ~/galaxy-dist/tool_conf.xml to reflect the addition of the new tools.
+Add the following lines within the <toolbox> tags.
+````
   <section id="mTools" name="My Tools">
     <tool file="my_tools/region_motif_intersect.xml" />
     <tool file="my_tools/region_motif_compare.xml" />
   </section>
+````
+
 4) In ~/galaxy-dist/tools/my_tools/region_motif_lib/ you will have to run the 
 following gcc commands to compile the shared library.
 ```
