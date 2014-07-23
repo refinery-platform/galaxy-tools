@@ -11,11 +11,11 @@ Nils Gehlenborg (nils@hms.harvard.edu)
 ## Overview
 ### Structure
 The tool suite consists of:  
-Two Main Rscripts -region_motif_compare.r and region_motif_intersect.r  
-Two Xml Files - region_motif_compare.xml and region_motif_intersect.xml  
-Motif Database Directory - region_motif_db  
-Dependency Library Directory - region_motif_lib  
-Galaxy Workflows - Galaxy-Workflow-Region_Motif_Count_Comparison_Test_Motifs.ga  
+1. Two Main Rscripts -region_motif_compare.r and region_motif_intersect.r  
+2. Two Xml Files - region_motif_compare.xml and region_motif_intersect.xml  
+3. Motif Database Directory - region_motif_db  
+4. Dependency Library Directory - region_motif_lib  
+5. Galaxy Workflows - Galaxy-Workflow-Region_Motif_Count_Comparison_Test_Motifs.ga  
 
 ### Description
 region_motif_intersect.r takes one bed file of regions as input. Then it calculates
