@@ -56,29 +56,27 @@ In addition, follow the directions to install Refinery (refinery-platform.readth
 3. Make a directory for the tools in Galaxy instance. This serves as a category
 for the tool in the tools sidebar. You can also place the tools in an existing
 or alternatively named directory, but remember to update tool_conf.xml to reflect this.
-````
-cd ~/galaxy-dist/tools/
-mkdir my_tools
-cd my_tools
-````
-
+    ````
+    cd ~/galaxy-dist/tools/
+    mkdir my_tools
+    cd my_tools
+    ````
 4. Copy over ".r" and ".xml" files, as well as region_motif_db and region_motif_lib
-````
-cd refinery-galaxy-tools/region-motif-compare
-cp *.r ~/galaxy-dist/tools/my_tools
-cp *.xml ~/galaxy-dist/tools/my_tools
-cp -r region_motif_db ~/galaxy-dist/tools/my_tools
-cp -r region_motif_lib ~/galaxy-dist/tools/my_tools
-````
-
+    ````
+    cd refinery-galaxy-tools/region-motif-compare
+    cp *.r ~/galaxy-dist/tools/my_tools
+    cp *.xml ~/galaxy-dist/tools/my_tools
+    cp -r region_motif_db ~/galaxy-dist/tools/my_tools
+    cp -r region_motif_lib ~/galaxy-dist/tools/my_tools
+    ````
 5. Edit ~/galaxy-dist/tool_conf.xml to reflect the addition of the new tools.
-Add the following lines within the <toolbox> tags.
-````
-  <section id="mTools" name="My Tools">
-    <tool file="my_tools/region_motif_intersect.xml" />
-    <tool file="my_tools/region_motif_compare.xml" />
-  </section>
-````
+Add the following lines within the `<toolbox>` tags.
+    ````
+    <section id="mTools" name="My Tools">
+        <tool file="my_tools/region_motif_intersect.xml" />
+        <tool file="my_tools/region_motif_compare.xml" />
+    </section>
+    ````
 
 4) In ~/galaxy-dist/tools/my_tools/region_motif_lib/ you will have to run the 
 following gcc commands to compile the shared library.
