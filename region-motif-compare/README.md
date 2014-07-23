@@ -72,9 +72,9 @@ or alternatively named directory, but remember to update tool_conf.xml to reflec
 5. Edit ~/galaxy-dist/tool_conf.xml to reflect the addition of the new tools.
 Add the following lines within the `<toolbox>` tags.
     ````
-    <section id="mTools" name="My Tools">
-        <tool file="my_tools/region_motif_intersect.xml" />
-        <tool file="my_tools/region_motif_compare.xml" />
+    <section id="mTools" name="My Tools">  
+        <tool file="my_tools/region_motif_intersect.xml" />  
+        <tool file="my_tools/region_motif_compare.xml" />  
     </section>
     ````
 
