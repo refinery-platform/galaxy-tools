@@ -45,14 +45,15 @@ motifs that distinguish the two regions (selected via p value).
 Directions for installing the region-motif-compare tools into a personal computer,
 local Galaxy instance, and local Refinery instance.
 
-0. Follow the online directions to install a local instance of Galaxy (getgalaxy.org).
+1. Follow the online directions to install a local instance of Galaxy (getgalaxy.org).
 In addition, follow the directions to install Refinery (refinery-platform.readthedocs.org)
-1. Clone the github repository to your local computer
+2. Clone the github repository to your local computer
 ````
 git clone https://github.com/parklab/refinery-galaxy-tools.git
 cd refinery-galaxy-tools/region-motif-compare
 ````
-2. Make a directory for the tools in Galaxy instance. This serves as a category
+
+3. Make a directory for the tools in Galaxy instance. This serves as a category
 for the tool in the tools sidebar. You can also place the tools in an existing
 or alternatively named directory, but remember to update tool_conf.xml to reflect this.
 ````
@@ -60,7 +61,8 @@ cd ~/galaxy-dist/tools/
 mkdir my_tools
 cd my_tools
 ````
-3. Copy over ".r" and ".xml" files, as well as region_motif_db and region_motif_lib
+
+4. Copy over ".r" and ".xml" files, as well as region_motif_db and region_motif_lib
 ````
 cd refinery-galaxy-tools/region-motif-compare
 cp *.r ~/galaxy-dist/tools/my_tools
@@ -68,7 +70,8 @@ cp *.xml ~/galaxy-dist/tools/my_tools
 cp -r region_motif_db ~/galaxy-dist/tools/my_tools
 cp -r region_motif_lib ~/galaxy-dist/tools/my_tools
 ````
-4. Edit ~/galaxy-dist/tool_conf.xml to reflect the addition of the new tools.
+
+5. Edit ~/galaxy-dist/tool_conf.xml to reflect the addition of the new tools.
 Add the following lines within the <toolbox> tags.
 ````
   <section id="mTools" name="My Tools">
