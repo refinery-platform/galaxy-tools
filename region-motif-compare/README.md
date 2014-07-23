@@ -1,6 +1,21 @@
 # Region-Motif-Compare Tools
+### Information
+Version 1.1
+Released 2014
+Park Laboratory
+Center for Biomedical Informatics
+Harvard University
 
-## Overview and Structure
+### Contact
+Jeremy Liu (jeremy.liu@yale.edu)
+Nils Gehlenb0rg (nils@hms.harvard.edu)
+
+## Overview
+### Structure
+
+### Description
+
+
 
 ## Installation
 Directions for installing the region motif tools into your local galaxy distribution
