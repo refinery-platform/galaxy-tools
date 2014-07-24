@@ -28,16 +28,16 @@ commonDir = concat(workingDir, "/tools/my_tools")
 dbCode = args[8]
 # dbCode "c" implemented when pwmFile is loaded
 if (dbCode == "t" | dbCode == "p") {
-	pwmFile = concat(commonDir, "/region_motif_db/pouya.pwms.from.seq.RData")
+	pwmFile = concat(commonDir, "/region_motif_db/pwms/pouya.pwms.from.seq.RData")
 } else if (dbCode == "j") {
-	pwmFile = concat(commonDir, "/region_motif_db/jasparjolma..pwms.from.seq")
+	pwmFile = concat(commonDir, "/region_motif_db/pwms/jaspar.jolma.pwms.from.seq.RData")
 } else if (dbCode == "m") {
-	pwmFile = concat(commonDir, "/NOT_DEFINED_YET")
+	pwmFile = concat(commonDir, "/region_motif_db/pwms/mm9.pwms.from.seq.RData")
 } else if (dbCode == "c") { # rest of dbCode "c" implemeted when pwmFile loaded
-	pwmFile = concat(commonDir, "/region_motif_db/pouya.pwms.from.seq.RData")
-	pwmFile2 = concat(commonDir, "/region_motif_db/jasparjolma..pwms.from.seq")
+	pwmFile = concat(commonDir, "/region_motif_db/pwms/pouya.pwms.from.seq.RData")
+	pwmFile2 = concat(commonDir, "/region_motif_db/pwms/jaspar.jolma.pwms.from.seq.RData")
 } else {
-	pwmFile = concat(commonDir, "/region_motif_db/pouya.pwms.from.seq.RData")
+	pwmFile = concat(commonDir, "/region_motif_db/pwms/pouya.pwms.from.seq.RData")
 }
 
 # Set input and reference files
@@ -56,29 +56,6 @@ read_tsv <- function(file) {
 	names(data)[names(data) == "V1"] = "motif"
 	names(data)[names(data) == "V2"] = "counts"
 	return(data)
-}
-
-# Auxiliary function for comparing two motif pwms
-# Only used if including pwms in the outfile files
-pwm.cors <- function(pwm1,pwm2) {
-	nc = 21
-	if(ncol(pwm1)<nc | ncol(pwm2)<nc) stop("nc<21")
-	m1=max(sapply(-5:5,function(i) {
-		ind1 = (1:nc) + i
-		ind = which(ind1>0 & ind1<=nc)
-		ind1 = ind1[ind]
-		ind2 = ind1 -i
-		cor(as.numeric(pwm1[,ind1]),as.numeric(pwm2[,ind2])) 
-	}))
-	pwm2 = pwm2[4:1,21:1]
-	m2=max(sapply(-10:2,function(i) {
-		ind1 = (1:nc) + i
-		ind = which(ind1>0 & ind1<=nc)
-		ind1 = ind1[ind]
-		ind2 = ind1 -i
-		cor(as.numeric(pwm1[,ind1]),as.numeric(pwm2[,ind2])) 
-	}))
-	max(m1,m2)
 }
 
 startTime = Sys.time()
@@ -110,10 +87,8 @@ names(addCounts1) = region1Diff
 names(addCounts2) = region2Diff
 newCounts1 = append(region1Counts, addCounts1)
 newCounts2 = append(region2Counts, addCounts2)
-sortCounts1 = newCounts1[sort.int(names(newCounts1), index.return=TRUE)$ix]
-sortCounts2 = newCounts2[sort.int(names(newCounts2), index.return=TRUE)$ix]
-region1Counts = sortCounts1
-region2Counts = sortCounts2
+region1Counts = newCounts1[sort.int(names(newCounts1), index.return=TRUE)$ix]
+region2Counts = newCounts2[sort.int(names(newCounts2), index.return=TRUE)$ix]
 
 # Generate gc content matrix
 gc = sapply(pwms, function(i) mean(i[2:3,3:18]))
@@ -178,7 +153,6 @@ abline(0,1/2,untf=T,lty=2)
 
 # Trim results, compile statistics and output to file
 # Only does so if significant results are computed
-# REMOVE THIS CONDITIONAL?
 if(length(indicesGC) > 0) {
 	# Calculate expected counts and enrichment ratios
 	cat("Calculating statistics...\n")

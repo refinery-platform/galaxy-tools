@@ -22,17 +22,15 @@ workingDir = args[7]
 commonDir = concat(workingDir, "/tools/my_tools")
 dbCode = args[8]
 if (dbCode == "t") {
-  #motifDB = concat(commonDir, "/region_motif_db/pouya_test_dir")
   motifDB = concat(commonDir, "/region_motif_db/pouya_test_motifs.bed.bgz")
 } else if (dbCode == "p") {
-  #motifDB = concat(commonDir, "/region_motif_db/pouya")
   motifDB = concat(commonDir, "/region_motif_db/pouya_motifs.bed.bgz")
 } else if (dbCode == "j") {
-  motifDB = concat(commonDir, "/region_motif_db/JolmaJaspar")
+  motifDB = concat(commonDir, "/region_motif_db/jaspar_jolma_motifs.bed.bgz")
 } else if (dbCode == "m") {
-  motifDB = concat(commonDir, "/NOT_DEFINED_YET")
+  motifDB = concat(commonDir, "/region_motif_db/mm9_motifs.bed.bgz")
 } else {
-  motifDB = concat(commonDir, "/region_motif_db/pouya")
+  motifDB = concat(commonDir, "/region_motif_db/pouya_motifs.bed.bgz")
 }
 
 # Set input and reference files, comment to toggle commmand line arguments
@@ -44,25 +42,12 @@ read_bed <- function(file) {
   return(read.table(file, sep="\t", stringsAsFactors=FALSE))
 }
 
-# Auxiliary function to write a data frame to BED file.
-write_bed <- function(df, file) {
-  write.table(df, file, quote=FALSE, sep="\t",
-                  row.names=FALSE, col.names=FALSE)
-}
-
 startTime = Sys.time()
 cat("Running ... Started at:", format(startTime, "%a %b %d %X %Y"), "...\n")
 
 # Load dependencies
 cat("Loading dependencies...\n")
-# source(concat(commonDir, "/region_motif_lib/regions.r")) # DEP
 suppressPackageStartupMessages(library(Rsamtools, quietly=TRUE))
-
-# DEP Parsing motif database to generate a list of motif names
-# motifFilesFull = dir(motifDB, "RData", full.names=TRUE)
-# motifFilesPart = dir(motifDB, "RData", full.names=FALSE)
-# motifNames = gsub(".RData", "", motifFilesPart, ignore.case=TRUE)
-# names(motifFilesFull) = motifNames
 
 # Initializing hash table (as env) with motif names and loading tabix file
 cat("Loading motif database and initializing hash table...\n")
@@ -110,23 +95,8 @@ for(motifName in ls(motifTable)) {
   counts[motifName] = as.integer(motifTable[[motifName]])
 }
 
-# DEP Prepare list of chromosomes and call regions
-# chrs = unique(regionsDF$chr)
-# names(chrs) = chrs
-# callRegions = lapply(chrs, function(chr) {
-#   chrIndexes = which(regionsDF$chr == chr)
-#   cbind(regionsDF$start[chrIndexes], regionsDF$end[chrIndexes])  
-# })
-
-# DEP Counting intersections of regions in bed file and motifs in database
-# counts = sapply(motifFilesFull, function(motif) {
-#   load(motif) # pos data structure
-#   length(which(distance.to.closest.region.of.poslist(pos,callRegions)==0))
-# })
-
 # Outputting intersection counts to tab delineated file
 cat("Outputting to file...\n")
-write.table(counts, outTab, quote=FALSE, sep="\t",
-            row.names=TRUE, col.names=FALSE)
+write.table(counts, outTab, quote=FALSE, sep="\t", row.names=TRUE, col.names=FALSE)
 cat("Done. Job started at:", format(startTime, "%a %b %d %X %Y."),
     "Job ended at:", format(Sys.time(), "%a %b %d %X %Y."), "\n")
