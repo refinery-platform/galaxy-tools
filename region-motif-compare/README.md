@@ -94,7 +94,14 @@ to reflect the correct path name.
     wget ????/mm9_motifs.bed.bgz.tbi
     ````
 
-7. If in Step 3 you copied the tools to an existing directory or an alternatively
+7. Install the Bioconductor R package Rsamtools for dealing with tabix files
+    ```
+    $ R
+    > source("http://bioconductor.org/biocLite.R")
+    > biocLite("Rsamtools")
+    ````
+
+8. If in Step 3 you copied the tools to an existing directory or an alternatively
 named directory, you must edit the following file paths.  
     In `region_motif_intersect.r` and `region_motif_compare.r` edit `commonDir`:  
     ````
