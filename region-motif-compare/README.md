@@ -24,7 +24,7 @@ Galaxy instance after installation of the tool.
 Takes one bed file of regions as input. Then it calculates
 the number of intersections of the regions and the motifs. region_motifs_intersect.r
 outputs a tab separated values (tsv) file of motif names and intersection counts.  
-**Important Note** region_motif_intersect.r makes no assumptions about the nature
+**Important Note:** region_motif_intersect.r makes no assumptions about the nature
 of the input regions. For example, if overlapping regions are inputted, motifs that
 intersect the overlap will be double counted. Thus, it is recommended that regions
 be merged before using this tool, using the merge tool in the Galaxy toolshed.
