@@ -4,7 +4,7 @@ Park Laboratory
 Center for Biomedical Informatics  
 Harvard University  
 
-Contact:  
+Contact  
 Jeremy Liu (jeremy.liu@yale.edu)  
 Nils Gehlenborg (nils@hms.harvard.edu)
 
@@ -150,10 +150,25 @@ R --slave --vanilla -f region_motif_compare.r --args ~/galaxy-dist p <path_to_re
 ````
 
 ## Motif Tabix File Creation
-Starting with a BED file of motif positions (minimal chr, start, end), follow the
-below example to generate a tabix file that can be placed in `region_motif_db` and
-used by the tools.
-    ````
+Starting with a BED file of motif positions (minimal chr, start, end), follow 
+below to generate a tabix file that can be placed in `region_motif_db` and
+used by the tools. 
 
-    ````
+1. Download Tabix (http://sourceforge.net/projects/samtools/files/tabix/) and install.
+Add `tabix` and `bgzip` binaries to your file path.
+````
+tar -xvjf tabix-0.2.6.tar.bz2
+cd tabix-0.2.6
+make
+````
 
+2. Construct bgzip files and index files.
+````
+cd ~/galaxy-dist/tools/my_tools/region_motif/db
+(grep ^"#" jaspar_motifs.bed; grep -v ^"#" jaspar_motifs.bed | sort -k1,1 -k2,2n) | bgzip > jaspa_motifs.bed.bgz
+tabix -p bed jaspar_motifs.bed.bgz   # this generates jaspar_motifs.bed.bgz.tbi
+````
+
+3. Add the path to `jaspar_motifs.bed.bgz` to the selection options for the variable
+`motifDB` in `region_motif_intersect.r` and `region_motif_compare.r`. To enable
+the new database in Galaxy, you will have to edit the xml files for both tools.
