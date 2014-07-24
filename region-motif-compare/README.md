@@ -156,18 +156,18 @@ used by the tools.
 
 1. Download Tabix (http://sourceforge.net/projects/samtools/files/tabix/) and install.
 Add `tabix` and `bgzip` binaries to your file path.
-````
+    ````
 tar -xvjf tabix-0.2.6.tar.bz2
 cd tabix-0.2.6
 make
-````
+    ````
 
 2. Construct bgzip files and index files.
-````
+    ````
 cd ~/galaxy-dist/tools/my_tools/region_motif/db
 (grep ^"#" jaspar_motifs.bed; grep -v ^"#" jaspar_motifs.bed | sort -k1,1 -k2,2n) | bgzip > jaspa_motifs.bed.bgz
 tabix -p bed jaspar_motifs.bed.bgz   # this generates jaspar_motifs.bed.bgz.tbi
-````
+    ````
 
 3. Add the path to `jaspar_motifs.bed.bgz` to the selection options for the variable
 `motifDB` in `region_motif_intersect.r` and `region_motif_compare.r`. To enable
