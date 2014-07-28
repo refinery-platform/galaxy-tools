@@ -161,6 +161,9 @@ R --slave --vanilla -f region_motif_compare.r --args ~/galaxy-dist p <path_to_re
 ````
 
 ## Motif Tabix File Creation
+Motif positions were created
+
+
 Starting with a BED file of motif positions (minimal chr, start, end), follow 
 below to generate a tabix file that can be placed in `region_motif_db` and
 used by the tools. 
