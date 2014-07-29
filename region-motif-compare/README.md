@@ -160,10 +160,26 @@ R --slave --vanilla -f region_motif_intersect.r --args ~/galaxy-dist p <path_to_
 R --slave --vanilla -f region_motif_compare.r --args ~/galaxy-dist p <path_to_region1_counts> <path_to_region2_counts> <enriched_motifs_output_tsv> <depleted_motifs_output_tsv> <plots_png>
 ````
 
+## Interpreting Results
+### Motif Database and Result Notation
+TF motif positions for hg19 and mm9 were curated from three databases:  
+ENCODE TF motif database "Pouya" (http://compbio.mit.edu/encode-motifs/)  
+JASPAR database "Jaspar" (http://jaspar.genereg.net/)  
+DNA binding specificities of human transciption factors "Jolma" (http://www.ncbi.nlm.nih.gov/pubmed/23332764)  
+
+For ENCODE TF motifs, the genomic locations were taken straight from the database.
+In addition, position weight matrices (pwms) were obtained by averaging the 
+sites in the genome for a motif. These are labeled with "\_8mer\_". 
+Fake motifs were also generated, by shuffling the pwms of actual motifs and 
+mapping to the genome and are labeled with "_8mer_C".
+
+For JASPAR and Jolma motifs, mast was run to determine genomic locations from the
+provided pwms. The motif alignmment thresholds were set to the top 5k, 20k, 100k, and
+250k sites and the redundant maps removed with the top 30k sites have the same score. 
+These are labeled with "_t5000" and likewise.
+
+
 ## Motif Tabix File Creation
-Motif positions were created
-
-
 Starting with a BED file of motif positions (minimal chr, start, end), follow 
 below to generate a tabix file that can be placed in `region_motif_db` and
 used by the tools. 
