@@ -1,0 +1,145 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "{\n        \"refinery_type\": \"analysis\",\n        \"refinery_relationships\": [\n                {\n                        \"category\": \"1-1\",\n                        \"set1\": \"k27ac bigBed\",\n                        \"set2\": \"k4me3 bigBed\"\n                }\n        ]\n}", 
+    "format-version": "0.1", 
+    "name": "H3k27ac Peaks Minus H3k4me3 Peaks From bigBeds", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "k27ac bigBed"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 145, 
+                "top": 238
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"k27ac bigBed\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "k4me3 bigBed"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 142, 
+                "top": 396
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"k4me3 bigBed\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "SAM/BAM/GFF/BedGraph/BigBed/VCF to Bed", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bed"
+                }
+            ], 
+            "position": {
+                "left": 358, 
+                "top": 177
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/timpalpant/java_genomics_toolkit/IntervalToBed/1.0.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/Users/jeremyliu1/galaxy-dist/tool-data/shared/ucsc/chrom/hg19.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "SAM/BAM/GFF/BedGraph/BigBed/VCF to Bed", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bed"
+                }
+            ], 
+            "position": {
+                "left": 363, 
+                "top": 379
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/timpalpant/java_genomics_toolkit/IntervalToBed/1.0.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/Users/jeremyliu1/galaxy-dist/tool-data/shared/ucsc/chrom/hg19.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "4": {
+            "annotation": "{\n        \"output\": {\n                \"name\": \"K27ac Filtered Enhancers\",\n                \"description\": \"Histone k27ac modifications enhanced region sites, with k4me3 region site intersections removed.\",\n                \"type\": \"bed\"\n        }\n}", 
+            "id": 4, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "input2": {
+                    "id": 3, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Subtract", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 827, 
+                "top": 298
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/subtract/gops_subtract_1/1.0.0", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"min\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"returntype\": \"\\\"\\\"\", \"chromInfo\": \"\\\"/Users/jeremyliu1/galaxy-dist/tool-data/shared/ucsc/chrom/hg19.len\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}
