@@ -4,7 +4,7 @@
     <requirement type="set_environment">R_SCRIPT_PATH</requirement>
   </requirements>
   <command interpreter="Rscript">
-    region_motif_intersect.r --args $R_SCRIPT_PATH $db_type $in_bed $out_tab
+    region_motif_intersect.r --args \$R_SCRIPT_PATH $db_type $in_bed $out_tab
   </command>
   <inputs>
     <param name="in_bed" type="data" format="bed" label="Input BED File" />

@@ -19,18 +19,18 @@ concat <- function(...) {
 # Set common and data directories
 args <- commandArgs()
 workingDir = args[7]
-commonDir = concat(workingDir, "/tools/my_tools")
+dbDir = concat(workingDir, "/region_motif_db")
 dbCode = args[8]
 if (dbCode == "t") {
-  motifDB = concat(commonDir, "/region_motif_db/pouya_test_motifs.bed.bgz")
+  motifDB = concat(dbDir, "/pouya_test_motifs.bed.bgz")
 } else if (dbCode == "p") {
-  motifDB = concat(commonDir, "/region_motif_db/pouya_motifs.bed.bgz")
+  motifDB = concat(dbDir, "/pouya_motifs.bed.bgz")
 } else if (dbCode == "j") {
-  motifDB = concat(commonDir, "/region_motif_db/jaspar_jolma_motifs.bed.bgz")
+  motifDB = concat(dbDir, "/jaspar_jolma_motifs.bed.bgz")
 } else if (dbCode == "m") {
-  motifDB = concat(commonDir, "/region_motif_db/mm9_motifs.bed.bgz")
+  motifDB = concat(dbDir, "/mm9_motifs.bed.bgz")
 } else {
-  motifDB = concat(commonDir, "/region_motif_db/pouya_motifs.bed.bgz")
+  motifDB = concat(dbDir, "/pouya_motifs.bed.bgz")
 }
 
 # Set input and reference files, comment to toggle commmand line arguments
