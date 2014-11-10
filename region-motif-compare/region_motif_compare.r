@@ -24,20 +24,20 @@ options(warn=-1)
 # Set common and data directories
 args <- commandArgs()
 workingDir = args[7]
-commonDir = concat(workingDir, "/tools/my_tools")
+dbDir = concat(workingDir, "/region_motif_db")
 dbCode = args[8]
 # dbCode "c" implemented when pwmFile is loaded
 if (dbCode == "t" | dbCode == "p") {
-	pwmFile = concat(commonDir, "/region_motif_db/pwms/pouya.pwms.from.seq.RData")
+	pwmFile = concat(dbDir, "/pwms/pouya.pwms.from.seq.RData")
 } else if (dbCode == "j") {
-	pwmFile = concat(commonDir, "/region_motif_db/pwms/jaspar.jolma.pwms.from.seq.RData")
+	pwmFile = concat(dbDir, "/pwms/jaspar.jolma.pwms.from.seq.RData")
 } else if (dbCode == "m") {
-	pwmFile = concat(commonDir, "/region_motif_db/pwms/mm9.pwms.from.seq.RData")
+	pwmFile = concat(dbDir, "/pwms/mm9.pwms.from.seq.RData")
 } else if (dbCode == "c") { # rest of dbCode "c" implemeted when pwmFile loaded
-	pwmFile = concat(commonDir, "/region_motif_db/pwms/pouya.pwms.from.seq.RData")
-	pwmFile2 = concat(commonDir, "/region_motif_db/pwms/jaspar.jolma.pwms.from.seq.RData")
+	pwmFile = concat(dbDir, "/pwms/pouya.pwms.from.seq.RData")
+	pwmFile2 = concat(dbDir, "/pwms/jaspar.jolma.pwms.from.seq.RData")
 } else {
-	pwmFile = concat(commonDir, "/region_motif_db/pwms/pouya.pwms.from.seq.RData")
+	pwmFile = concat(dbDir, "/pwms/pouya.pwms.from.seq.RData")
 }
 
 # Set input and reference files
@@ -48,7 +48,7 @@ depleteTab = args[12]
 plotsPng = args[13]
 
 # Load dependencies
-source(concat(commonDir, "/region_motif_lib/plotting.r"))
+source(concat(workingDir, "/region_motif_lib/plotting.r"))
 
 # Auxiliary function to read in tab file and prepare the data
 read_tsv <- function(file) {

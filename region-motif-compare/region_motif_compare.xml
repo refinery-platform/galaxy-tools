@@ -1,7 +1,10 @@
 <tool id="region_motif_compare" name="Region Motif Count Compare">
   <description>for comparing the motif counts in different region sets</description>
-  <command interpreter="bash">
-    /usr/bin/R --slave --vanilla -f $GALAXY_ROOT_DIR/tools/my_tools/region_motif_compare.r --args $GALAXY_ROOT_DIR $db_type $in_tab_1 $in_tab_2 $out_enriched $out_depleted $out_plots
+  <requirements>
+    <requirement type="set_environment">RMOTIF_PATH</requirement>
+  </requirements>
+  <command interpreter="Rscript">
+    region_motif_compare.r --args \$RMOTIF_PATH $db_type $in_tab_1 $in_tab_2 $out_enriched $out_depleted $out_plots
   </command>
   <inputs>
     <param name="in_tab_1" type="data" format="tabular" label="Region Set 1 Motif Count File"/>
