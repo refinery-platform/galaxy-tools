@@ -2,6 +2,7 @@
   <description>for computing the motifs that lie inside a region set</description>
   <requirements>
     <requirement type="set_environment">RMOTIF_PATH</requirement>
+    <requirement type="package" version="1.0.0">MOTIFS</requirement>
   </requirements>
   <command interpreter="Rscript">
     region_motif_intersect.r --args \$RMOTIF_PATH $db_type $in_bed $out_tab
