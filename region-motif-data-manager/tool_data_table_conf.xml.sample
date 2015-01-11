@@ -1,0 +1,7 @@
+<tables>
+    <!-- Locations of all fasta files under genome directory -->
+    <table name="motif_databases" comment_char="#">
+        <columns>value, name, path</columns>
+        <file path="tool-data/motif_databases.loc" />
+    </table>
+</tables>

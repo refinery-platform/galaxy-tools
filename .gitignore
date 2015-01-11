@@ -3,4 +3,4 @@
 *.pyc
 .project
 .pydevproject
-
+region-motif-compare/upload*
