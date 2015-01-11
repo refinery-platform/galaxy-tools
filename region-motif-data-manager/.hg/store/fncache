@@ -1,7 +1,0 @@
-data/data_manager/data_manager_fetch_genome_all_fasta.py.i
-data/test-data/phiX174_as_anoGam1.data_manager_json.i
-data/data_manager/data_manager_fetch_genome_all_fasta.xml.i
-data/data_manager_conf.xml.i
-data/tool_data_table_conf.xml.sample.i
-data/tool-data/all_fasta.loc.sample.i
-data/test-data/phiX174.fasta.i
