@@ -19,23 +19,36 @@ from galaxy.util.json import from_json_string, to_json_string
 CHUNK_SIZE = 2**20 #1mb
 
 def download_motif_databases( data_manager_dict, params, target_directory, motif_db ):
-    TEST_BGZ_URL = 'http://gehlenborg.com/wp-content/uploads/motif/pouya_test_motifs.bed.bgz'
-    TEST_TBI_URL = 'http://gehlenborg.com/wp-content/uploads/motif/pouya_test_motifs.bed.bgz.tbi'
-    POUYA_BGZ_URL = ''
-    POUYA_TBI_URL = ''
-    JOLMA_BGZ_URL = ''
-    JOLMA_TBI_URL = ''
-    MM9_BGZ_URL = ''
-    MM9_TBI_URL = ''
 
-    bgz_reader = urllib2.urlopen( TEST_BGZ_URL )
+    if motif_db == "pouya":
+        BGZ = ['COMPBIO URL HERE',
+                "pouya_motifs.bed.bgz", "pouya_bgz", "Pouya Encode Motifs (hg19) BGZ"]
+        TBI = ['COMPBIO URL HERE',
+                "pouya_motifs.bed.bgz.tbi", "pouya_tbi", "Pouya Encode Motifs (hg19) TBI"]
+    elif motif_db == "jaspar":
+        BGZ = ['COMPBIO URL HERE',
+               "jaspar_jolma_motifs.bed.bgz", "jaspar_bgz", "Jaspar and Jolma Motifs (hg19) BGZ"]
+        TBI = ['COMPBIO URL HERE',
+                "jaspar_jolma_motifs.bed.bgz.tbi", "jaspar_tbi", "Jaspar and Jolma Motifs (hg19) TBI"]
+    elif motif_db == "mouse":
+        BGZ = ['COMPBIO URL HERE',
+                "mouse_motifs.bed.bgz", "mouse_bgz", "Mouse Motifs (mm9) BGZ"]
+        TBI = ['COMPBIO URL HERE',
+                "mouse_motifs.bed.bgz.tbi", "mouse_tbi", "Mouse Motifs (mm9) TBI"]
+    else:
+        BGZ = ['http://gehlenborg.com/wp-content/uploads/motif/pouya_test_motifs.bed.bgz', 
+               "pouya_test_motifs.bed.bgz", "test_bgz", "Test Pouya Subset (hg19) BGZ"]
+        TBI = ['http://gehlenborg.com/wp-content/uploads/motif/pouya_test_motifs.bed.bgz.tbi',
+               "pouya_test_motifs.bed.bgz.tbi", "test_tbi", "Test Pouya Subset (hg19) TBI"]
+
+    bgz_reader = urllib2.urlopen( BGZ[0] )
     bgz_data_table_entry = _stream_fasta_to_file( bgz_reader, target_directory, params,
-                            "pouya_test_motifs.bed.bgz", "test_bgz", "Test Pouya Subset BGZ (hg19)" )
+                            BGZ[1], BGZ[2], BGZ[3] )
     _add_data_table_entry( data_manager_dict, 'motif_databases', bgz_data_table_entry )
 
-    tbi_reader = urllib2.urlopen( TEST_TBI_URL )
+    tbi_reader = urllib2.urlopen( TBI[0] )
     tbi_data_table_entry = _stream_fasta_to_file( tbi_reader, target_directory, params,
-                            "pouya_test_motifs.bed.bgz.tbi", "test_tbi", "Test Pouya Subset TBI (hg19)" )
+                            TBI[1], TBI[2], TBI[3] )
     _add_data_table_entry( data_manager_dict, 'motif_databases', tbi_data_table_entry )
 
 def _add_data_table_entry( data_manager_dict, data_table, data_table_entry ):
