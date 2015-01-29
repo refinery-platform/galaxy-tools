@@ -15,6 +15,11 @@
     <help>
         **What it does**
 
-        UPDATE THIS
+        Fetches a reference motif database (bgz and tbi files) from Harvard
+        CBMI source and populates the "motif_databases" data table.
+
+        **TO DO**
+        Ability to add motif database from local file, as the last step in 
+        a MEME pipeline.
     </help>
 </tool>

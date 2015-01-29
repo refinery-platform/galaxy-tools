@@ -1,7 +1,9 @@
+# This file lists the locations and values of all the motif databases bgz
+# and tbi files. This file has the format (white space characters are TAB
+# characters)
+# <value>		<display_name>	<file_path>
 #
-#<value>		<display_name>	<file_path>
+# So, motif_databases.loc could look something like this:
 #
-#So, motif_databases.loc could look something like this:
-#
-#test	  Test Pouya Subset (hg19)		  /<path_to_galaxy>/tool-data/motifs/pouya_test_motifs.bed.bgz
-#
+# test_bgz	  Test Pouya Subset (hg19) BGZ	  /<path_to_galaxy>/tool-data/motifs/pouya_test_motifs.bed.bgz
+# test_tbi    Test Pouya Subset (hg19) TBI    /<path_to_galaxy>/tool-data/motifs/pouya_test_motifs.bed.bgz.tbi
