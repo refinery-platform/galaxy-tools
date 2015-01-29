@@ -30,12 +30,12 @@ def download_motif_databases( data_manager_dict, params, target_directory, motif
 
     bgz_reader = urllib2.urlopen( TEST_BGZ_URL )
     bgz_data_table_entry = _stream_fasta_to_file( bgz_reader, target_directory, params,
-                            "test_bgz", "pouya_test_motifs.bed.bgz" )
+                            "pouya_test_motifs.bed.bgz", "test_bgz", "Test Pouya Subset BGZ (hg19)" )
     _add_data_table_entry( data_manager_dict, 'motif_databases', bgz_data_table_entry )
 
     tbi_reader = urllib2.urlopen( TEST_TBI_URL )
     tbi_data_table_entry = _stream_fasta_to_file( tbi_reader, target_directory, params,
-                            "test_tbi", "pouya_test_motifs.bed.bgz" )
+                            "pouya_test_motifs.bed.bgz.tbi", "test_tbi", "Test Pouya Subset TBI (hg19)" )
     _add_data_table_entry( data_manager_dict, 'motif_databases', tbi_data_table_entry )
 
 def _add_data_table_entry( data_manager_dict, data_table, data_table_entry ):
@@ -44,9 +44,8 @@ def _add_data_table_entry( data_manager_dict, data_table, data_table_entry ):
     data_manager_dict['data_tables'][data_table].append( data_table_entry )
     return data_manager_dict
 
-def _stream_fasta_to_file( fasta_stream, target_directory, params, close_stream=True,
-                        fasta_base_filename, value, name ):
-    fasta_base_filename = "pouya_test_motifs.bed.bgz"
+def _stream_fasta_to_file( fasta_stream, target_directory, params,
+                        fasta_base_filename, value, name, close_stream=True ):
     fasta_filename = os.path.join( target_directory, fasta_base_filename )
     fasta_writer = open( fasta_filename, 'wb+' )
     
