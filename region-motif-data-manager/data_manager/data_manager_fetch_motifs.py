@@ -19,22 +19,33 @@ from galaxy.util.json import from_json_string, to_json_string
 CHUNK_SIZE = 2**20 #1mb
 
 def download_motif_databases( data_manager_dict, params, target_directory, motif_db ):
-    TEST_DOWNLOAD_URL = 'http://gehlenborg.com/wp-content/uploads/motif/pouya_test_motifs.bed.bgz'
-    #TO DO: Add tbi file
+    TEST_BGZ_URL = 'http://gehlenborg.com/wp-content/uploads/motif/pouya_test_motifs.bed.bgz'
+    TEST_TBI_URL = 'http://gehlenborg.com/wp-content/uploads/motif/pouya_test_motifs.bed.bgz.tbi'
+    POUYA_BGZ_URL = ''
+    POUYA_TBI_URL = ''
+    JOLMA_BGZ_URL = ''
+    JOLMA_TBI_URL = ''
+    MM9_BGZ_URL = ''
+    MM9_TBI_URL = ''
 
-    url = TEST_DOWNLOAD_URL
-    fasta_reader = urllib2.urlopen( url )
-    
-    data_table_entry = _stream_fasta_to_file( fasta_reader, target_directory, params )
-    _add_data_table_entry( data_manager_dict, data_table_entry )
+    bgz_reader = urllib2.urlopen( TEST_BGZ_URL )
+    bgz_data_table_entry = _stream_fasta_to_file( bgz_reader, target_directory, params,
+                            "test_bgz", "pouya_test_motifs.bed.bgz" )
+    _add_data_table_entry( data_manager_dict, 'motif_databases', bgz_data_table_entry )
 
-def _add_data_table_entry( data_manager_dict, data_table_entry ):
+    tbi_reader = urllib2.urlopen( TEST_TBI_URL )
+    tbi_data_table_entry = _stream_fasta_to_file( tbi_reader, target_directory, params,
+                            "test_tbi", "pouya_test_motifs.bed.bgz" )
+    _add_data_table_entry( data_manager_dict, 'motif_databases', tbi_data_table_entry )
+
+def _add_data_table_entry( data_manager_dict, data_table, data_table_entry ):
     data_manager_dict['data_tables'] = data_manager_dict.get( 'data_tables', {} )
-    data_manager_dict['data_tables']['all_fasta'] = data_manager_dict['data_tables'].get( 'all_fasta', [] )
-    data_manager_dict['data_tables']['all_fasta'].append( data_table_entry )
+    data_manager_dict['data_tables'][data_table] = data_manager_dict['data_tables'].get( data_table, [] )
+    data_manager_dict['data_tables'][data_table].append( data_table_entry )
     return data_manager_dict
 
-def _stream_fasta_to_file( fasta_stream, target_directory, params, close_stream=True ):
+def _stream_fasta_to_file( fasta_stream, target_directory, params, close_stream=True,
+                        fasta_base_filename, value, name ):
     fasta_base_filename = "pouya_test_motifs.bed.bgz"
     fasta_filename = os.path.join( target_directory, fasta_base_filename )
     fasta_writer = open( fasta_filename, 'wb+' )
@@ -49,7 +60,7 @@ def _stream_fasta_to_file( fasta_stream, target_directory, params, close_stream=
     fasta_stream.close()
     fasta_writer.close()
     
-    return dict( value="test", name="Test Pouya Subset (hg19)", path=fasta_base_filename )
+    return dict( value=value, name=name, path=fasta_base_filename )
 
 def main():
     #Parse Command Line
@@ -65,7 +76,7 @@ def main():
     data_manager_dict = {}
     
     #Fetch the Motif Database
-    download_motif_databases( data_manager_dict, params, target_directory, motif_db )
+    download_motif_databases( data_manager_dict, params, target_directory, options.motif_db )
     
     #save info to json file
     open( filename, 'wb' ).write( to_json_string( data_manager_dict ) )

@@ -1,0 +1,7 @@
+#
+#<value>		<display_name>	<file_path>
+#
+#So, motif_databases.loc could look something like this:
+#
+#test	  Test Pouya Subset (hg19)		  /<path_to_galaxy>/tool-data/motifs/pouya_test_motifs.bed.bgz
+#

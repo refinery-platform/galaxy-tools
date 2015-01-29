@@ -1,5 +1,5 @@
-<tool id="data_manager_fetch_motifs" name="Motif Database" version="1.0.0" tool_type="manage_data">
-    <description>fetching</description>
+<tool id="data_manager_fetch_motifs" name="Install Motif Database" version="1.0.0" tool_type="manage_data">
+    <description>Downloads motif databases in tabix format for use with region_motif_enrichment</description>
     <command interpreter="python">data_manager_fetch_motifs.py "${out_file}" --motif_db ${motif_db_selector}</command>
     <inputs>
         <param name="motif_db_selector" type="select" label="Choose the source for the motif db">
@@ -15,8 +15,6 @@
     <help>
         **What it does**
 
-        Fetches a reference genome from various sources (UCSC, NCBI, URL, Galaxy History, or a server directory) and populates the "all_fasta" data table.
-
-        **Notice:** If you leave name, description, or id blank, it will be generated automatically. 
+        UPDATE THIS
     </help>
 </tool>
