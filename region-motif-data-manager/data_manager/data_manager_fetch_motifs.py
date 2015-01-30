@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-#Dan Blankenberg
+# Jeremy Liu
+# February 2015
+# Adapted from Dan Blackenburg's sample data manager
 
 import sys
 import os
@@ -20,6 +22,7 @@ CHUNK_SIZE = 2**20 #1mb
 
 def download_motif_databases( data_manager_dict, params, target_directory, motif_db ):
 
+    # Select download URL, file name, data table name, and path using motif_db selector variable
     if motif_db == "pouya":
         BGZ = ['COMPBIO URL HERE',
                 "pouya_motifs.bed.bgz", "pouya_bgz", "Pouya Encode Motifs (hg19) BGZ"]
@@ -41,11 +44,13 @@ def download_motif_databases( data_manager_dict, params, target_directory, motif
         TBI = ['http://gehlenborg.com/wp-content/uploads/motif/pouya_test_motifs.bed.bgz.tbi',
                "pouya_test_motifs.bed.bgz.tbi", "test_tbi", "Test Pouya Subset (hg19) TBI"]
 
+    # Save and add motif bgz file to motif_databases data table
     bgz_reader = urllib2.urlopen( BGZ[0] )
     bgz_data_table_entry = _stream_fasta_to_file( bgz_reader, target_directory, params,
                             BGZ[1], BGZ[2], BGZ[3] )
     _add_data_table_entry( data_manager_dict, 'motif_databases', bgz_data_table_entry )
 
+    # Save and add motif tbi file to motif_databases data table
     tbi_reader = urllib2.urlopen( TBI[0] )
     tbi_data_table_entry = _stream_fasta_to_file( tbi_reader, target_directory, params,
                             TBI[1], TBI[2], TBI[3] )

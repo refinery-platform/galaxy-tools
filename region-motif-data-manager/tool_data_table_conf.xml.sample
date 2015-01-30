@@ -1,5 +1,5 @@
 <tables>
-    <!-- Locations of all motif database files under genome directory -->
+    <!-- Locations of motif database files -->
     <table name="motif_databases" comment_char="#">
         <columns>value, name, path</columns>
         <file path="tool-data/motif_databases.loc" />

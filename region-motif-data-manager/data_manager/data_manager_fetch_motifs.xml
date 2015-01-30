@@ -19,6 +19,7 @@
         CBMI source and populates the "motif_databases" data table.
 
         **TO DO**
+        
         Ability to add motif database from local file, as the last step in 
         a MEME pipeline.
     </help>
