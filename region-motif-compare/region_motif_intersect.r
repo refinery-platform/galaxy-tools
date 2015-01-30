@@ -3,7 +3,7 @@
 # of each motif (built in rdata database) and target regions.
 # Author: Jeremy liu
 # Email: jeremy.liu@yale.edu
-# Date: 14/07/02
+# Date: 15/01/30
 # Note: This script is meant to be invoked with the following command
 # R --slave --vanilla -f ./region_motif_intersect.r --args <workingdir> <db> <inbed> <outtab>
 # <workingdir> is working directory of galaxy installation
@@ -21,9 +21,9 @@ args <- commandArgs()
 workingDir = args[7]
 dbDir = concat(workingDir, "/region_motif_db")
 dbCode = args[8]
-if (dbCode == "t") {
-  motifDB = concat(dbDir, "/pouya_test_motifs.bed.bgz")
-} else if (dbCode == "p") {
+
+# Select correct database
+if (dbCode == "p") {
   motifDB = concat(dbDir, "/pouya_motifs.bed.bgz")
 } else if (dbCode == "j") {
   motifDB = concat(dbDir, "/jaspar_jolma_motifs.bed.bgz")

@@ -24,24 +24,24 @@ def download_motif_databases( data_manager_dict, params, target_directory, motif
 
     # Select download URL, file name, data table name, and path using motif_db selector variable
     if motif_db == "pouya":
-        BGZ = ['COMPBIO URL HERE',
+        BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_motifs_bed.bgz',
                 "pouya_motifs.bed.bgz", "pouya_bgz", "Pouya Encode Motifs (hg19) BGZ"]
-        TBI = ['COMPBIO URL HERE',
+        TBI = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_motifs_bed.bgz.tbi',
                 "pouya_motifs.bed.bgz.tbi", "pouya_tbi", "Pouya Encode Motifs (hg19) TBI"]
     elif motif_db == "jaspar":
-        BGZ = ['COMPBIO URL HERE',
-               "jaspar_jolma_motifs.bed.bgz", "jaspar_bgz", "Jaspar and Jolma Motifs (hg19) BGZ"]
-        TBI = ['COMPBIO URL HERE',
+        BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/jaspar_jolma_motifs.bed.bgz',
+                "jaspar_jolma_motifs.bed.bgz", "jaspar_bgz", "Jaspar and Jolma Motifs (hg19) BGZ"]
+        TBI = ['http://compbio.med.harvard.edu/motif-enrichment/jaspar_jolma_motifs.bed.bgz.tbi',
                 "jaspar_jolma_motifs.bed.bgz.tbi", "jaspar_tbi", "Jaspar and Jolma Motifs (hg19) TBI"]
     elif motif_db == "mouse":
-        BGZ = ['COMPBIO URL HERE',
-                "mouse_motifs.bed.bgz", "mouse_bgz", "Mouse Motifs (mm9) BGZ"]
-        TBI = ['COMPBIO URL HERE',
-                "mouse_motifs.bed.bgz.tbi", "mouse_tbi", "Mouse Motifs (mm9) TBI"]
+        BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/mm9_motifs_split.bed.bgz',
+                "mm9_motifs_split.bed.bgz", "mouse_bgz", "Mouse Motifs (mm9) BGZ"]
+        TBI = ['http://compbio.med.harvard.edu/motif-enrichment/mm9_motifs_split.bed.bgz.tbi',
+                "mm9_motifs_split.bed.bgz.tbi", "mouse_tbi", "Mouse Motifs (mm9) TBI"]
     else:
-        BGZ = ['http://gehlenborg.com/wp-content/uploads/motif/pouya_test_motifs.bed.bgz', 
+        BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_test_motifs.bed.bgz', 
                "pouya_test_motifs.bed.bgz", "test_bgz", "Test Pouya Subset (hg19) BGZ"]
-        TBI = ['http://gehlenborg.com/wp-content/uploads/motif/pouya_test_motifs.bed.bgz.tbi',
+        TBI = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_test_motifs.bed.bgz.tbi',
                "pouya_test_motifs.bed.bgz.tbi", "test_tbi", "Test Pouya Subset (hg19) TBI"]
 
     # Save and add motif bgz file to motif_databases data table
