@@ -24,9 +24,9 @@ def download_motif_databases( data_manager_dict, params, target_directory, motif
 
     # Select download URL, file name, data table name, and path using motif_db selector variable
     if motif_db == "pouya":
-        BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_motifs_bed.bgz',
+        BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_motifs.bed.bgz',
                 "pouya_motifs.bed.bgz", "pouya_bgz", "Pouya Encode Motifs (hg19) BGZ"]
-        TBI = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_motifs_bed.bgz.tbi',
+        TBI = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_motifs.bed.bgz.tbi',
                 "pouya_motifs.bed.bgz.tbi", "pouya_tbi", "Pouya Encode Motifs (hg19) TBI"]
     elif motif_db == "jaspar":
         BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/jaspar_jolma_motifs.bed.bgz',
