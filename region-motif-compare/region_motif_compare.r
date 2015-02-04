@@ -24,7 +24,6 @@ options(warn=-1)
 # Set common and data directories
 args <- commandArgs()
 workingDir = args[7]
-dbDir = concat(workingDir, "/region_motif_db")
 dbCode = args[8]
 # dbCode "c" implemented when pwmFile is loaded
 if (dbCode == "t" | dbCode == "p") {
