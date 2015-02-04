@@ -1,20 +1,27 @@
 <tool id="region_motif_intersect" name="Region Motif Intersect">
   <description>for computing the motifs that lie inside a region set</description>
-  <requirements>
-    <requirement type="set_environment">RMOTIF_PATH</requirement>
-    <requirement type="package" version="1.0.0">MOTIFS</requirement>
-  </requirements>
+  <!--<requirements>
+    <requirement type="package" version="1.0.0">MOTIF_DATA_MANAGER</requirement>
+  </requirements>-->
   <command interpreter="Rscript">
-    region_motif_intersect.r --args \$RMOTIF_PATH $db_type $in_bed $out_tab
+    region_motif_intersect.r --args $bgz_file.fields.path $tbi_file.fields.path $in_bed $out_tab
   </command>
   <inputs>
     <param name="in_bed" type="data" format="bed" label="Input BED File" />
-    <param name="db_type" type="select" label="Select Motif Database" >
+    
+    <param name="bgz_file" type="select" label="Using motif database BGZ file">
+      <options from_data_table="motif_databases"/>
+    </param>
+    <param name="tbi_file" type="select" label="Using motif database TBI file">
+      <options from_data_table="motif_databases"/>
+    </param>
+
+    <!--<param name="db_type" type="select" label="Select Motif Database" >
       <option value="t">Test Pouya Subset (hg19)</option>
       <option value="p">Pouya Encode Motifs (hg19)</option>
       <option value="j">Jaspar and Jolma Motifs (hg19)</option>
       <option value="m">Mouse Motifs (mm9)</option>
-    </param>
+    </param>-->
   </inputs>
   <outputs>
     <data name="out_tab" format="tabular" />

@@ -4,7 +4,7 @@
 # corrections. All enrichment ratios relative to overall count / gc ratios.
 # Author: Jeremy liu
 # Email: jeremy.liu@yale.edu
-# Date: 14/07/03
+# Date: 15/02/04
 # Note: This script is meant to be invoked with the following command
 # R --slave --vanilla -f ./region_motif_compare.r --args <workingdir> <db> <intab1> <intab2> 
 #   <enriched_tab> <depleted_tab> <plots_png>
@@ -28,16 +28,16 @@ dbDir = concat(workingDir, "/region_motif_db")
 dbCode = args[8]
 # dbCode "c" implemented when pwmFile is loaded
 if (dbCode == "t" | dbCode == "p") {
-	pwmFile = concat(dbDir, "/pwms/pouya.pwms.from.seq.RData")
+	pwmFile = concat(workingDir, "/pwms/pouya.pwms.from.seq.RData")
 } else if (dbCode == "j") {
-	pwmFile = concat(dbDir, "/pwms/jaspar.jolma.pwms.from.seq.RData")
+	pwmFile = concat(workingDir, "/pwms/jaspar.jolma.pwms.from.seq.RData")
 } else if (dbCode == "m") {
-	pwmFile = concat(dbDir, "/pwms/mm9.pwms.from.seq.RData")
+	pwmFile = concat(workingDir, "/pwms/mm9.pwms.from.seq.RData")
 } else if (dbCode == "c") { # rest of dbCode "c" implemeted when pwmFile loaded
-	pwmFile = concat(dbDir, "/pwms/pouya.pwms.from.seq.RData")
-	pwmFile2 = concat(dbDir, "/pwms/jaspar.jolma.pwms.from.seq.RData")
+	pwmFile = concat(workingDir, "/pwms/pouya.pwms.from.seq.RData")
+	pwmFile2 = concat(workingDir, "/pwms/jaspar.jolma.pwms.from.seq.RData")
 } else {
-	pwmFile = concat(dbDir, "/pwms/pouya.pwms.from.seq.RData")
+	pwmFile = concat(workingDir, "/pwms/pouya.pwms.from.seq.RData")
 }
 
 # Set input and reference files
@@ -48,7 +48,7 @@ depleteTab = args[12]
 plotsPng = args[13]
 
 # Load dependencies
-source(concat(workingDir, "/region_motif_lib/plotting.r"))
+source(concat(workingDir, "/plotting.r"))
 
 # Auxiliary function to read in tab file and prepare the data
 read_tsv <- function(file) {

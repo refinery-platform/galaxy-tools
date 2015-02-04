@@ -1,14 +1,12 @@
 # Name: region_motif_intersect.r
 # Description: Takes a bed file of target regions and counts intersections
-# of each motif (built in rdata database) and target regions.
+# of each motif (in separately installed tabix database) and target regions.
 # Author: Jeremy liu
 # Email: jeremy.liu@yale.edu
-# Date: 15/01/30
+# Date: 15/02/04
 # Note: This script is meant to be invoked with the following command
-# R --slave --vanilla -f ./region_motif_intersect.r --args <workingdir> <db> <inbed> <outtab>
-# <workingdir> is working directory of galaxy installation
-# <db> types: "t" test, "p" pouya, "j" jaspar jolma, "m" mouse
-# Dependencies: none
+# R --slave --vanilla -f ./region_motif_intersect.r --args <db_bgz> <db_tbi> <inbed> <outtab>
+# Dependencies: region_motif_data_manager
 
 # Auxiliary function to concatenate multiple strings
 concat <- function(...) {
@@ -16,22 +14,10 @@ concat <- function(...) {
   return(paste(input_list, sep="", collapse=""))
 }
 
-# Set common and data directories
+# Retrive motif database path
 args <- commandArgs()
-workingDir = args[7]
-dbDir = concat(workingDir, "/region_motif_db")
-dbCode = args[8]
-
-# Select correct database
-if (dbCode == "p") {
-  motifDB = concat(dbDir, "/pouya_motifs.bed.bgz")
-} else if (dbCode == "j") {
-  motifDB = concat(dbDir, "/jaspar_jolma_motifs.bed.bgz")
-} else if (dbCode == "m") {
-  motifDB = concat(dbDir, "/mm9_motifs.bed.bgz")
-} else {
-  motifDB = concat(dbDir, "/pouya_motifs.bed.bgz")
-}
+motifDB_bgz = args[7]
+motifDB_tbi = args[8]
 
 # Set input and reference files, comment to toggle commmand line arguments
 inBed = args[9]
@@ -52,7 +38,7 @@ suppressPackageStartupMessages(library(Rsamtools, quietly=TRUE))
 # Initializing hash table (as env) with motif names and loading tabix file
 cat("Loading motif database and initializing hash table...\n")
 motifTable = new.env()
-motifTbx <- TabixFile(motifDB)
+motifTbx <- TabixFile(motifDB_bgz)
 
 # Loading input bed file, convert integer columns to numeric, name columns
 cat("Loading region file...\n")
