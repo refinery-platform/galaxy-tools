@@ -32,7 +32,7 @@ if (dbCode == "t" | dbCode == "p") {
 	pwmFile = concat(workingDir, "/pwms/jaspar.jolma.pwms.from.seq.RData")
 } else if (dbCode == "m") {
 	pwmFile = concat(workingDir, "/pwms/mm9.pwms.from.seq.RData")
-} else if (dbCode == "c") { # rest of dbCode "c" implemeted when pwmFile loaded
+} else if (dbCode == "c") { # rest of dbCode "c" implemented when pwmFile loaded
 	pwmFile = concat(workingDir, "/pwms/pouya.pwms.from.seq.RData")
 	pwmFile2 = concat(workingDir, "/pwms/jaspar.jolma.pwms.from.seq.RData")
 } else {
