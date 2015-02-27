@@ -14,8 +14,8 @@
     </param>
 
     <!--<param name="db_type" type="select" label="Select Motif Database" >
-      <option value="t">Test Pouya Subset (hg19)</option>
-      <option value="p">Pouya Encode Motifs (hg19)</option>
+      <option value="t">Test Encode Motifs (hg19)</option>
+      <option value="e">Encode Motifs (hg19)</option>
       <option value="j">Jaspar and Jolma Motifs (hg19)</option>
       <option value="m">Mouse Motifs (mm9)</option>
     </param>-->

@@ -5,5 +5,5 @@
 #
 # So, motif_databases.loc could look something like this:
 #
-# test_bgz	  Test Pouya Subset (hg19) BGZ	  /<path_to_galaxy>/tool-data/motifs/pouya_test_motifs.bed.bgz
-# test_tbi    Test Pouya Subset (hg19) TBI    /<path_to_galaxy>/tool-data/motifs/pouya_test_motifs.bed.bgz.tbi
+# test_bgz	  Test Encode Motifs (hg19) BGZ	  /<path_to_galaxy>/tool-data/motifs/pouya_test_motifs.bed.bgz
+# test_tbi    Test Encode motifs (hg19) TBI    /<path_to_galaxy>/tool-data/motifs/pouya_test_motifs.bed.bgz.tbi

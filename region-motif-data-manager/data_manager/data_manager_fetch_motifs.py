@@ -23,13 +23,13 @@ CHUNK_SIZE = 2**20 #1mb
 def download_motif_databases( data_manager_dict, params, target_directory, motif_db ):
 
     # Select download URL, file name, data table name, and path using motif_db selector variable
-    if motif_db == "pouya":
+    if motif_db == "encode":
         BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_motifs.bed.bgz',
-                "pouya_motifs.bed.bgz", "pouya_bgz", "Pouya Encode Motifs (hg19) BGZ"]
+                "pouya_motifs.bed.bgz", "encode_bgz", "Encode Motifs (hg19) BGZ"]
         TBI = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_motifs.bed.bgz.tbi',
-                "pouya_motifs.bed.bgz.tbi", "pouya_tbi", "Pouya Encode Motifs (hg19) TBI"]
+                "pouya_motifs.bed.bgz.tbi", "encode_tbi", "Encode Motifs (hg19) TBI"]
         PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/pouya.pwms.from.seq.RData',
-                "pouya.pwms.from.seq.RData", "pouya_pwm", "Pouya Encode Motifs (hg19) PWM"]        
+                "pouya.pwms.from.seq.RData", "encode_pwm", "Encode Motifs (hg19) PWM"]        
     elif motif_db == "jaspar":
         BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/jaspar_jolma_motifs.bed.bgz',
                 "jaspar_jolma_motifs.bed.bgz", "jaspar_bgz", "Jaspar and Jolma Motifs (hg19) BGZ"]
@@ -46,11 +46,11 @@ def download_motif_databases( data_manager_dict, params, target_directory, motif
                 "mm9.pwms.from.seq.RData", "mouse_pwm", "Mouse Motifs (mm9) PWM"]
     else:
         BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_test_motifs.bed.bgz', 
-               "pouya_test_motifs.bed.bgz", "test_bgz", "Test Pouya Subset (hg19) BGZ"]
+               "pouya_test_motifs.bed.bgz", "test_bgz", "Test Encode Motifs (hg19) BGZ"]
         TBI = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_test_motifs.bed.bgz.tbi',
-               "pouya_test_motifs.bed.bgz.tbi", "test_tbi", "Test Pouya Subset (hg19) TBI"]
+               "pouya_test_motifs.bed.bgz.tbi", "test_tbi", "Test Encode Motifs (hg19) TBI"]
         PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/pouya.pwms.from.seq.RData',
-                "pouya.pwms.from.seq.RData", "test_pwm", "Test Pouya Subset (hg19) PWM"] 
+                "pouya.pwms.from.seq.RData", "test_pwm", "Test Encode Motifs (hg19) PWM"] 
 
 
     # Save and add motif bgz file to motif_databases data table
