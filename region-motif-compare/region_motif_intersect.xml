@@ -1,8 +1,5 @@
 <tool id="region_motif_intersect" name="Region Motif Intersect">
   <description>for computing the motifs that lie inside a region set</description>
-  <!--<requirements>
-    <requirement type="package" version="1.0.0">MOTIF_DATA_MANAGER</requirement>
-  </requirements>-->
   <command interpreter="Rscript">
     region_motif_intersect.r --args $bgz_file.fields.path $tbi_file.fields.path $in_bed $out_tab
   </command>

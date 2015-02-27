@@ -4,13 +4,12 @@
 # corrections. All enrichment ratios relative to overall count / gc ratios.
 # Author: Jeremy liu
 # Email: jeremy.liu@yale.edu
-# Date: 15/02/04
+# Date: 15/02/11
 # Note: This script is meant to be invoked with the following command
-# R --slave --vanilla -f ./region_motif_compare.r --args <workingdir> <db> <intab1> <intab2> 
-#   <enriched_tab> <depleted_tab> <plots_png>
+# R --slave --vanilla -f ./region_motif_compare.r --args <workingdir> <pwm_file> 
+#        <intab1> <intab2> <enriched_tab> <depleted_tab> <plots_png>
 # <workingdir> is working directory of galaxy installation
-# <db> types: "t" test, "p" pouya, "j" jaspar jolma, "m" mouse, "c" combined
-# Dependencies: plotting.r
+# Dependencies: region_motif_data_manager, plotting.r
 
 # Auxiliary function to concatenate multiple strings
 concat <- function(...) {
@@ -24,20 +23,7 @@ options(warn=-1)
 # Set common and data directories
 args <- commandArgs()
 workingDir = args[7]
-dbCode = args[8]
-# dbCode "c" implemented when pwmFile is loaded
-if (dbCode == "t" | dbCode == "p") {
-	pwmFile = concat(workingDir, "/pwms/pouya.pwms.from.seq.RData")
-} else if (dbCode == "j") {
-	pwmFile = concat(workingDir, "/pwms/jaspar.jolma.pwms.from.seq.RData")
-} else if (dbCode == "m") {
-	pwmFile = concat(workingDir, "/pwms/mm9.pwms.from.seq.RData")
-} else if (dbCode == "c") { # rest of dbCode "c" implemented when pwmFile loaded
-	pwmFile = concat(workingDir, "/pwms/pouya.pwms.from.seq.RData")
-	pwmFile2 = concat(workingDir, "/pwms/jaspar.jolma.pwms.from.seq.RData")
-} else {
-	pwmFile = concat(workingDir, "/pwms/pouya.pwms.from.seq.RData")
-}
+pwmFile = args[8]
 
 # Set input and reference files
 inTab1 = args[9]
@@ -63,11 +49,11 @@ cat("Running ... Started at:", format(startTime, "%a %b %d %X %Y"), "...\n")
 # Loading motif position weight matrix (pwm) file and input tab file
 cat("Loading and reading input region motif count files...\n")
 load(pwmFile) # pwms data structure
-if (dbCode == "c") { # Remaining implementation of dbCode "c" combined 
-	temp = pwms
-	load(pwmFile2)
-	pwms = append(temp, pwms)
-}
+#if (dbCode == "c") { # Remaining implementation of dbCode "c" combined 
+#	temp = pwms
+#	load(pwmFile2)
+#	pwms = append(temp, pwms)
+#}
 region1DF = read_tsv(inTab1)
 region2DF = read_tsv(inTab2)
 region1Counts = region1DF$counts

@@ -1,9 +1,9 @@
 # Name: region_motif_intersect.r
 # Description: Takes a bed file of target regions and counts intersections
 # of each motif (in separately installed tabix database) and target regions.
-# Author: Jeremy liu
+# Author: Jeremy Liu
 # Email: jeremy.liu@yale.edu
-# Date: 15/02/04
+# Date: 15/02/11
 # Note: This script is meant to be invoked with the following command
 # R --slave --vanilla -f ./region_motif_intersect.r --args <db_bgz> <db_tbi> <inbed> <outtab>
 # Dependencies: region_motif_data_manager

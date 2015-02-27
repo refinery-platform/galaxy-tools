@@ -28,21 +28,30 @@ def download_motif_databases( data_manager_dict, params, target_directory, motif
                 "pouya_motifs.bed.bgz", "pouya_bgz", "Pouya Encode Motifs (hg19) BGZ"]
         TBI = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_motifs.bed.bgz.tbi',
                 "pouya_motifs.bed.bgz.tbi", "pouya_tbi", "Pouya Encode Motifs (hg19) TBI"]
+        PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/pouya.pwms.from.seq.RData',
+                "pouya.pwms.from.seq.RData", "pouya_pwm", "Pouya Encode Motifs (hg19) PWM"]        
     elif motif_db == "jaspar":
         BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/jaspar_jolma_motifs.bed.bgz',
                 "jaspar_jolma_motifs.bed.bgz", "jaspar_bgz", "Jaspar and Jolma Motifs (hg19) BGZ"]
         TBI = ['http://compbio.med.harvard.edu/motif-enrichment/jaspar_jolma_motifs.bed.bgz.tbi',
                 "jaspar_jolma_motifs.bed.bgz.tbi", "jaspar_tbi", "Jaspar and Jolma Motifs (hg19) TBI"]
+        PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/jaspar.jolma.pwms.from.seq.RData',
+                "jaspar.jolma.pwms.from.seq.RData", "jaspar_pwm", "Jaspar and Jolma Motifs (hg19) PWM"]
     elif motif_db == "mouse":
         BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/mm9_motifs_split.bed.bgz',
                 "mm9_motifs_split.bed.bgz", "mouse_bgz", "Mouse Motifs (mm9) BGZ"]
         TBI = ['http://compbio.med.harvard.edu/motif-enrichment/mm9_motifs_split.bed.bgz.tbi',
                 "mm9_motifs_split.bed.bgz.tbi", "mouse_tbi", "Mouse Motifs (mm9) TBI"]
+        PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/mm9.pwms.from.seq.RData',
+                "mm9.pwms.from.seq.RData", "mouse_pwm", "Mouse Motifs (mm9) PWM"]
     else:
         BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_test_motifs.bed.bgz', 
                "pouya_test_motifs.bed.bgz", "test_bgz", "Test Pouya Subset (hg19) BGZ"]
         TBI = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_test_motifs.bed.bgz.tbi',
                "pouya_test_motifs.bed.bgz.tbi", "test_tbi", "Test Pouya Subset (hg19) TBI"]
+        PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/pouya.pwms.from.seq.RData',
+                "pouya.pwms.from.seq.RData", "test_pwm", "Test Pouya Subset (hg19) PWM"] 
+
 
     # Save and add motif bgz file to motif_databases data table
     bgz_reader = urllib2.urlopen( BGZ[0] )
@@ -54,6 +63,12 @@ def download_motif_databases( data_manager_dict, params, target_directory, motif
     tbi_reader = urllib2.urlopen( TBI[0] )
     tbi_data_table_entry = _stream_fasta_to_file( tbi_reader, target_directory, params,
                             TBI[1], TBI[2], TBI[3] )
+    _add_data_table_entry( data_manager_dict, 'motif_databases', tbi_data_table_entry )
+
+    # Save and add motif pwm file to motif_databases data table
+    tbi_reader = urllib2.urlopen( PWM[0] )
+    tbi_data_table_entry = _stream_fasta_to_file( tbi_reader, target_directory, params,
+                            PWM[1], PWM[2], PWM[3] )
     _add_data_table_entry( data_manager_dict, 'motif_databases', tbi_data_table_entry )
 
 def _add_data_table_entry( data_manager_dict, data_table, data_table_entry ):
