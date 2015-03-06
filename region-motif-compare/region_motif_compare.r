@@ -23,7 +23,7 @@ options(warn=-1)
 # Set common and data directories
 args <- commandArgs()
 workingDir = args[7]
-pwmFile = args[8].split(',')[0] # If duplicate entires, take first one
+pwmFile = unlist(strsplit(args[8], ','))[1]  # If duplicate entires, take first one
 
 # Set input and reference files
 inTab1 = args[9]

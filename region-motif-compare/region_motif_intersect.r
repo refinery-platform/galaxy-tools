@@ -16,8 +16,8 @@ concat <- function(...) {
 
 # Retrive motif database path
 args <- commandArgs()
-motifDB_bgz = args[7].split(',')[0] # Handles duplicate entries in data table
-motifDB_tbi = args[8].split(',')[0] # Just takes the first one
+motifDB_bgz = unlist(strsplit(args[7], ','))[1] # Handles duplicate entries in data table
+motifDB_tbi = unlist(strsplit(args[8], ','))[1] # Just takes the first one
 
 # Set input and reference files, comment to toggle commmand line arguments
 inBed = args[9]
