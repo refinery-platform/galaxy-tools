@@ -5,11 +5,11 @@
 # Author: Jeremy liu
 # Email: jeremy.liu@yale.edu
 # Date: 15/02/11
-# Note: This script is meant to be invoked with the following command
+# Note: This script can be invoked with the following command
 # R --slave --vanilla -f ./region_motif_compare.r --args <workingdir> <pwm_file> 
 #        <intab1> <intab2> <enriched_tab> <depleted_tab> <plots_png>
-# <workingdir> is working directory of galaxy installation
-# Dependencies: region_motif_data_manager, plotting.r
+# <workingdir> is the directory where plotting.r is saved
+# Dependencies: region_motif_data_manager, plotting.r, 
 
 # Auxiliary function to concatenate multiple strings
 concat <- function(...) {
@@ -46,14 +46,27 @@ read_tsv <- function(file) {
 startTime = Sys.time()
 cat("Running ... Started at:", format(startTime, "%a %b %d %X %Y"), "...\n")
 
-# Loading motif position weight matrix (pwm) file and input tab file
+# Loading motif position weight matrix (pwm) file 
+cat("Loading motif postion weight matrices...\n")
+lines = scan(infile, what="character", sep="\n")
+indices = which(grepl("MOTIF", lines))
+names(indices) = lapply(indices, function(i) {
+    nameline = lines[i]
+    name = substr(nameline, 7, nchar(nameline))
+    })
+
+pwms = sapply(indices, function(i) {
+    infoline = unlist(strsplit(lines[i+1], " "))
+    alength = as.numeric(infoline[4])
+    width = as.numeric(infoline[6])
+    subset = lines[(i+2):(i+2+width-1)]
+    motiflines = strsplit(subset, " ")
+    motif = t(do.call(rbind, motiflines))
+    motif = apply(motif, 2, as.numeric)
+    }, simplify=FALSE, USE.NAMES=TRUE)
+
+# Loading input tab files
 cat("Loading and reading input region motif count files...\n")
-load(pwmFile) # pwms data structure
-#if (dbCode == "c") { # Remaining implementation of dbCode "c" combined 
-#	temp = pwms
-#	load(pwmFile2)
-#	pwms = append(temp, pwms)
-#}
 region1DF = read_tsv(inTab1)
 region2DF = read_tsv(inTab2)
 region1Counts = region1DF$counts

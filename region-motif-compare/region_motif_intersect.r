@@ -4,9 +4,9 @@
 # Author: Jeremy Liu
 # Email: jeremy.liu@yale.edu
 # Date: 15/02/11
-# Note: This script is meant to be invoked with the following command
+# Note: This script can be invoked with the following command
 # R --slave --vanilla -f ./region_motif_intersect.r --args <db_bgz> <db_tbi> <inbed> <outtab>
-# Dependencies: region_motif_data_manager
+# Dependencies: region_motif_data_manager, Rsamtools
 
 # Auxiliary function to concatenate multiple strings
 concat <- function(...) {
@@ -33,7 +33,7 @@ cat("Running ... Started at:", format(startTime, "%a %b %d %X %Y"), "...\n")
 
 # Load dependencies
 cat("Loading dependencies...\n")
-suppressPackageStartupMessages(library(Rsamtools, quietly=TRUE))
+suppressPackageStartupMessages(library(Rsamtools, quietly=TRUE)) # NEED TO HANDLE INSTALLATION
 
 # Initializing hash table (as env) with motif names and loading tabix file
 cat("Loading motif database and initializing hash table...\n")
