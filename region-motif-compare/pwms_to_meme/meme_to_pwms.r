@@ -1,4 +1,4 @@
-# Name: 
+# Name: meme_to_pwms.r
 # Description: 
 # Author: Jeremy liu
 # Email: jeremy.liu@yale.edu
@@ -20,7 +20,7 @@ outfile = args[8]
 
 #lines = scan("jaspar.jolma.pwms.from.seq.meme.txt", what="character", sep="\n")
 
-lines = scan(infile, what="character", sep="\n")
+lines = scan(infile, what="character", sep="\n", quiet=TRUE)
 indices = which(grepl("MOTIF", lines))
 names(indices) = lapply(indices, function(i) {
     nameline = lines[i]

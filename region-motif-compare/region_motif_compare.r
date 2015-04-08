@@ -48,7 +48,7 @@ cat("Running ... Started at:", format(startTime, "%a %b %d %X %Y"), "...\n")
 
 # Loading motif position weight matrix (pwm) file 
 cat("Loading motif postion weight matrices...\n")
-lines = scan(infile, what="character", sep="\n")
+lines = scan(pwmFile, what="character", sep="\n", quiet=TRUE)
 indices = which(grepl("MOTIF", lines))
 names(indices) = lapply(indices, function(i) {
     nameline = lines[i]

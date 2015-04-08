@@ -28,29 +28,29 @@ def download_motif_databases( data_manager_dict, params, target_directory, motif
                 "pouya_motifs.bed.bgz", "encode_bgz", "Encode Motifs (hg19) BGZ"]
         TBI = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_motifs.bed.bgz.tbi',
                 "pouya_motifs.bed.bgz.tbi", "encode_tbi", "Encode Motifs (hg19) TBI"]
-        PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/pouya.pwms.from.seq.RData',
-                "pouya.pwms.from.seq.RData", "encode_pwm", "Encode Motifs (hg19) PWM"]        
+        PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/pouya.pwms.from.seq.meme.txt',
+                "pouya.pwms.from.seq.RData", "encode_pwm", "Encode Motifs (hg19) PWM MEME"]        
     elif motif_db == "jaspar":
         BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/jaspar_jolma_motifs.bed.bgz',
                 "jaspar_jolma_motifs.bed.bgz", "jaspar_bgz", "Jaspar and Jolma Motifs (hg19) BGZ"]
         TBI = ['http://compbio.med.harvard.edu/motif-enrichment/jaspar_jolma_motifs.bed.bgz.tbi',
                 "jaspar_jolma_motifs.bed.bgz.tbi", "jaspar_tbi", "Jaspar and Jolma Motifs (hg19) TBI"]
-        PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/jaspar.jolma.pwms.from.seq.RData',
-                "jaspar.jolma.pwms.from.seq.RData", "jaspar_pwm", "Jaspar and Jolma Motifs (hg19) PWM"]
+        PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/jaspar.jolma.pwms.from.seq.meme.txt',
+                "jaspar.jolma.pwms.from.seq.RData", "jaspar_pwm", "Jaspar and Jolma Motifs (hg19) PWM MEME"]
     elif motif_db == "mouse":
         BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/mm9_motifs_split.bed.bgz',
                 "mm9_motifs_split.bed.bgz", "mouse_bgz", "Mouse Motifs (mm9) BGZ"]
         TBI = ['http://compbio.med.harvard.edu/motif-enrichment/mm9_motifs_split.bed.bgz.tbi',
                 "mm9_motifs_split.bed.bgz.tbi", "mouse_tbi", "Mouse Motifs (mm9) TBI"]
-        PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/mm9.pwms.from.seq.RData',
-                "mm9.pwms.from.seq.RData", "mouse_pwm", "Mouse Motifs (mm9) PWM"]
+        PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/mm9.pwms.from.seq.meme.txt',
+                "mm9.pwms.from.seq.RData", "mouse_pwm", "Mouse Motifs (mm9) PWM MEME"]
     else:
         BGZ = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_test_motifs.bed.bgz', 
                "pouya_test_motifs.bed.bgz", "test_bgz", "Test Encode Motifs (hg19) BGZ"]
         TBI = ['http://compbio.med.harvard.edu/motif-enrichment/pouya_test_motifs.bed.bgz.tbi',
                "pouya_test_motifs.bed.bgz.tbi", "test_tbi", "Test Encode Motifs (hg19) TBI"]
-        PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/pouya.pwms.from.seq.RData',
-                "pouya.pwms.from.seq.RData", "test_pwm", "Test Encode Motifs (hg19) PWM"] 
+        PWM = ['http://compbio.med.harvard.edu/motif-enrichment/pwms/pouya.pwms.from.seq.meme.txt',
+                "pouya.pwms.from.seq.RData", "test_pwm", "Test Encode Motifs (hg19) PWM MEME"] 
 
 
     # Save and add motif bgz file to motif_databases data table
