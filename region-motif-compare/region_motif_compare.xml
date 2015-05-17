@@ -16,22 +16,24 @@
     <param name="pwm_file" type="select" label="Using motif database PWM file">
       <options from_data_table="motif_databases"/>
     </param>
-    
-    <!-- COMBINED OPTION IS LOST
-    <param name="db_type" type="select" label="Select Motif Database" >
-      <option value="t">Test Encode Motifs (hg19)</option>
-      <option value="e">Encode Motifs (hg19)</option>
-      <option value="j">Jaspar and Jolma Motifs (hg19)</option>
-      <option value="m">Mouse Motifs (mm9)</option>
-      <option value="c">Pouya, Jaspar, and Jolma Combined (hg19)</option>
-    </param> -->
-
   </inputs>
+
   <outputs>
     <data name="out_enriched" format="tabular" label="Enriched Motifs"/>
     <data name="out_depleted" format="tabular" label="Depleted Motifs"/>
     <data name="out_plots" format="png" label="Motif Count Comparison Plots"/>
   </outputs>
+
+  <tests>
+    <test>
+      <param name="in_tab_1" value="XXX.tab" />
+      <param name="in_tab_2" value="XXX.tab" />
+      <param name="pwm_file" value="XXX.meme.txt" />
+      <output name="out_enriched" file="XXX.tab" />
+      <output name="out_depleted" file="XXX.tab" />     
+      <output name="out_plots" file="XXX.png" />          
+    </test>
+  </tests>
 
   <help>
     This tools reads in two counts file and determines enriched and depleted

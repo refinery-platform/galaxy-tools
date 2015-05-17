@@ -24,6 +24,21 @@
     <data name="out_tab" format="tabular" />
   </outputs>
 
+  <tests>
+    <test>
+      <param name="in_bed" value="XXX.bed" />
+      <param name="bgz_file" value="XXX" />
+      <param name="tbi_file" value="XXX" />
+      <output name="output" file="XXX.tab" />     
+    </test>
+    <test>
+      <param name="in_bed" value="XXX.bed" />
+      <param name="bgz_file" value="XXX" />
+      <param name="tbi_file" value="XXX" />
+      <output name="out_tab" file="XXX.tab" />     
+    </test>
+  </tests>
+
   <help>
     This tool computes the motifs and the number of motifs that intersect
     any region in a input set of regions.

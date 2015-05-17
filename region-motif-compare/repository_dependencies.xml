@@ -1,4 +1,9 @@
 <?xml version="1.0"?>
+<!-- FOR TESTTOOLSHED VERSION
 <repositories description="Region_Motif_Enrichment requires Region_Motif_Data_Manager motif databases">
      <repository toolshed="http://testtoolshed.g2.bx.psu.edu" name="region_motif_data_manager" owner="jeremyjliu" />
+</repositories>
+ -->
+<repositories description="Region_Motif_Enrichment requires Region_Motif_Data_Manager motif databases">
+     <repository toolshed="http://toolshed.g2.bx.psu.edu" name="region_motif_data_manager" owner="jeremyjliu" />
 </repositories>
