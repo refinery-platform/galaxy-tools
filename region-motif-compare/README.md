@@ -49,7 +49,7 @@ motifs that distinguish the two regions (selected via p value).
 the tools rely on databases of motif positions as compressed, indexed tabix files.
 
 ### Pipeline Flowchart
-![Region Motif Comparison Pipeline](/pipeline.png)
+![Region Motif Comparison Pipeline](/region-motif-compare/pipeline.png)
 
 ## Installation
 Directions for installing the region-motif-compare tools into a personal computer
