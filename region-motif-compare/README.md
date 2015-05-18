@@ -1,5 +1,5 @@
 # Region-Motif-Compare Tools
-Version 1.1 Released 2014  
+Version 1.2.0 Released 2015  
 Park Laboratory  
 Center for Biomedical Informatics  
 Harvard University  
@@ -10,13 +10,17 @@ Nils Gehlenborg (nils@hms.harvard.edu)
 
 ## Overview
 ### Structure
-The tool suite consists of:
+This tool suite consists of:
 
 1. Two Rscripts: region_motif_compare.r and region_motif_intersect.r
 2. Two Xml Files: region_motif_compare.xml and region_motif_intersect.xml
-3. Motif Database Directory: region_motif_db
-4. Dependency Library Directory: region_motif_lib
-5. Galaxy Workflows: Files with suffix ".ga" that can be imported into the local
+3. Motif Database Configuration Files: motif_databases.loc.sample and 
+tool_data_table_conf.xml.sample
+4. Dependency Configuration Files: plotting.r, repository_dependencies.xml, 
+and tool_dependencies.xml
+5. Test Data: Located in test-data, this contains test BED files from the ENCODE
+project that can be used to verify correct tool functioning
+6. Galaxy Workflows: Files with suffix ".ga" that can be imported into the local
 Galaxy instance after installation of the tool.
 
 ### Description
@@ -41,16 +45,18 @@ motifs as a tsv. In addition, the tool outputs a diagnostic plot containing
 graphical representations of the motif counts, gc correction curves, and significant 
 motifs that distinguish the two regions (selected via p value).
 
-3. **region_motif_db**: Contains motif positions as compressed, indexed tabix files.
+3. **Motif Database**: To count the intersections of motif locations in regions, 
+the tools rely on databases of motif positions as compressed, indexed tabix files.
 
-4. **region_motif_lib**: Contains dependencies (i.e. plotting.r) for region_motif_compare.r
+### Pipeline Flowchart
+![Region Motif Comparison Pipeline](/pipeline.png)
 
 ## Installation
 Directions for installing the region-motif-compare tools into a personal computer
-and a local Galaxy instance.
+and a local Galaxy instance. This requires Galaxy administrative privledges.
 
 1. Follow the online directions to install a local instance of Galaxy (getgalaxy.org).
-Optionally, follow the directions to install Refinery (refinery-platform.readthedocs.org)
+Optionally, follow the directions to install Refinery (refinery-platform.readthedocs.org).
 
 2. Clone the github repository to your local computer
     ````
@@ -152,6 +158,7 @@ already been annotated for Refinery.
 4. Run the tools from the Refinery user interface.
 
 ### Running as Command Line Tools
+UPDATE 
 You can also run the tools from the command line, an example of which is shown below.
 More information is found in the headers of the r source files.
 ````
