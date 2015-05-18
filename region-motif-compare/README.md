@@ -19,7 +19,7 @@ tool_data_table_conf.xml.sample
 4. Dependency Configuration Files: plotting.r, repository_dependencies.xml, 
 and tool_dependencies.xml
 5. Test Data: Located in test-data, this contains test BED files from the ENCODE
-project that can be used to verify correct tool functioning
+project that can be used to verify correct tool functioning.
 6. Galaxy Workflows: Files with suffix ".ga" that can be imported into the local
 Galaxy instance after installation of the tool.
 
@@ -48,90 +48,39 @@ motifs that distinguish the two regions (selected via p value).
 3. **Motif Database**: To count the intersections of motif locations in regions, 
 the tools rely on databases of motif positions as compressed, indexed tabix files.
 
+
 ### Pipeline Flowchart
+Green: motif enrichment analysis   
+Red: motif database preparation
+
 ![Region Motif Comparison Pipeline](/region-motif-compare/doc/pipeline.png)
 
 ## Installation
 Directions for installing the region-motif-compare tools into a personal computer
-and a local Galaxy instance. This requires Galaxy administrative privledges.
+and a local Galaxy instance. This requires Galaxy administrative priviledges.
 
 1. Follow the online directions to install a local instance of Galaxy (getgalaxy.org).
 Optionally, follow the directions to install Refinery (refinery-platform.readthedocs.org).
 
-2. Clone the github repository to your local computer
-    ````
-    git clone https://github.com/parklab/refinery-galaxy-tools.git
-    cd refinery-galaxy-tools/region-motif-compare
-    ````
+2. Login as an administrator and access the Admin control panel. The tools can
+be found in the Galaxy main tool shed under the repository: region_motif_enrichment
+by clicking "Search and browse tool sheds" and searching the package name.
+Install the tools via the Galaxy tool installer UI.
 
-3. Make a directory for the tools in Galaxy instance. This serves as a category
-for the tool in the tools sidebar. You can also place the tools in an existing
-or alternatively named directory, but remember to update tool_conf.xml to reflect this.
-    ````
-    cd ~/galaxy-dist/tools/
-    mkdir my_tools
-    cd my_tools
-    ````
+3. The tool suite requires the installation of motif databases, via a Galaxy
+data manager. Galaxy should automatically inform you of this dependency and 
+install the data manager. For information on how to run the data manager and
+how to download the provided motif databases, see region-motif-data-manager LINK.
 
-4. Copy over ".r" and ".xml" files, as well as `region_motif_db` and `region_motif_lib`
-    ````
-    cd refinery-galaxy-tools/region-motif-compare
-    cp *.r ~/galaxy-dist/tools/my_tools
-    cp *.xml ~/galaxy-dist/tools/my_tools
-    cp -r region_motif_db ~/galaxy-dist/tools/my_tools
-    cp -r region_motif_lib ~/galaxy-dist/tools/my_tools
-    ````
-
-5. Edit `~/galaxy-dist/tool_conf.xml` to reflect the addition of the new tools.
-Add the following lines within the `<toolbox>` tags. If in Step 3 you copied
-the tools to a different directory than `my_tools`, edit the code snippet
-to reflect the correct path name.
-    ````
-    <section id="mTools" name="My Tools">  
-        <tool file="my_tools/region_motif_intersect.xml" />  
-        <tool file="my_tools/region_motif_compare.xml" />  
-    </section>
-    ````
-
-6. Download the motif databases and place them into `region_motif_db`
-    ````
-    cd ~/galaxy-dist/tools/my_tools/region_motif_db
-    wget ????/pouya_motifs.bed.bgz
-    wget ????/pouya_motifs.bed.bgz.tbi
-    wget ????/jaspar_jolma_motifs.bed.bgz
-    wget ????/jaspar_jolma_motifs.bed.bgz.tbi
-    wget ????/mm9_motifs.bed.bgz
-    wget ????/mm9_motifs.bed.bgz.tbi
-    ````
-
-7. Install the Bioconductor R package Rsamtools for dealing with tabix files
+4. Install R and the Bioconductor R package Rsamtools for dealing with tabix files
     ```
     $ R
     > source("http://bioconductor.org/biocLite.R")
     > biocLite("Rsamtools")
     ````
 
-8. If in Step 3 you copied the tools to an existing directory or an alternatively
-named directory, you must edit the following file paths.  
-    In `region_motif_intersect.r` and `region_motif_compare.r` edit `commonDir`:  
-    ````
-    # Replace this line
-    commonDir = concat(workingDir, "/tools/my_tools")
-    # With this edited line
-    commonDir = concat(workingDir, "<relative_path_from_galaxy_root>/<tool_directory>")
-    ````
-    In addition, edit `region_motif_intersect.xml` and `region_motif_compare.xml` to
-    reflect the path of the tools relative to the galaxy root directory.
-    ````
-    <command interpreter="bash">
-        /usr/bin/R --slave --vanilla -f $GALAXY_ROOT_DIR/<path_to_tools>/region_motif_intersect.r --args $GALAXY_ROOT_DIR $db_type $in_bed $out_tab
-    </command>
-    ````
-    ````
-    <command interpreter="bash">
-        /usr/bin/R --slave --vanilla -f $GALAXY_ROOT_DIR/<path_to_tools>/region_motif_compare.r --args $GALAXY_ROOT_DIR $db_type $in_tab_1 $in_tab_2 $out_enriched $out_depleted $out_plots
-    </command>
-    ````
+5. Alternatively, you can download the tools here and install them manually
+into a local Galaxy instance.
 
 ## Running the Tools
 ### Running from Galaxy
@@ -158,13 +107,12 @@ already been annotated for Refinery.
 4. Run the tools from the Refinery user interface.
 
 ### Running as Command Line Tools
-UPDATE 
 You can also run the tools from the command line, an example of which is shown below.
 More information is found in the headers of the r source files.
 ````
 cd ~/galaxy-dist/tools/my_tools
-R --slave --vanilla -f region_motif_intersect.r --args ~/galaxy-dist p <path_to_bed_file> <path_to_output_tsv>
-R --slave --vanilla -f region_motif_compare.r --args ~/galaxy-dist p <path_to_region1_counts> <path_to_region2_counts> <enriched_motifs_output_tsv> <depleted_motifs_output_tsv> <plots_png>
+R --slave --vanilla -f region_motif_intersect.r --args <motif_db_bgz> <motif_db_tbi> <input_bed> <output_tsv>
+R --slave --vanilla -f region_motif_compare.r --args ~/galaxy-dist <motif_pwms_meme> <path_to_region1_counts> <path_to_region2_counts> <enriched_motifs_output_tsv> <depleted_motifs_output_tsv> <plots_png>
 ````
 
 ## Interpreting Results
@@ -188,8 +136,7 @@ These are labeled with "_t5000" and likewise.
 
 ## Motif Tabix File Creation
 Starting with a BED file of motif positions (minimal chr, start, end), follow 
-below to generate a tabix file that can be placed in `region_motif_db` and
-used by the tools. 
+below to generate a tabix file that can be placed in /galaxy-dist/tool-data/motifs/.
 
 1. Download Tabix (http://sourceforge.net/projects/samtools/files/tabix/) and install.
 Add `tabix` and `bgzip` binaries to your file path.
@@ -206,6 +153,5 @@ cd ~/galaxy-dist/tools/my_tools/region_motif/db
 tabix -p bed jaspar_motifs.bed.bgz   # this generates jaspar_motifs.bed.bgz.tbi
     ````
 
-3. Add the path to `jaspar_motifs.bed.bgz` to the selection options for the variable
-`motifDB` in `region_motif_intersect.r` and `region_motif_compare.r`. To enable
-the new database in Galaxy, you will have to edit the xml files for both tools.
+3. Move the bgzip and tbi files to /galaxy-dist/tool-data/motifs/. Additionally,
+edit /galaxy-dist/tool-data/toolshed.g2.bx.psu.edu/repos/jeremyjliu/region_motif_data_manager/<revision number>/motif_database.loc to reflect this change.
