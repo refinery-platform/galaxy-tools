@@ -59,8 +59,8 @@ Red: motif database preparation
 Directions for installing the region-motif-compare tools into a personal computer
 and a local Galaxy instance. This requires Galaxy administrative priviledges.
 
-1. Follow the online directions to install a local instance of Galaxy (getgalaxy.org).
-Optionally, follow the directions to install Refinery (refinery-platform.readthedocs.org).
+1. Follow the online directions to install a local instance of [Galaxy](getgalaxy.org).
+Optionally, follow the directions to install [Refinery](refinery-platform.readthedocs.org).
 
 2. Login as an administrator and access the Admin control panel. The tools can
 be found in the Galaxy main tool shed under the repository: region_motif_enrichment
@@ -70,7 +70,8 @@ Install the tools via the Galaxy tool installer UI.
 3. The tool suite requires the installation of motif databases, via a Galaxy
 data manager. Galaxy should automatically inform you of this dependency and 
 install the data manager. For information on how to run the data manager and
-how to download the provided motif databases, see region-motif-data-manager LINK.
+how to download the provided motif databases, see 
+[region-motif-data-manager](https://github.com/parklab/refinery-galaxy-tools/tree/develop/region-motif-data-manager).
 
 4. Install R and the Bioconductor R package Rsamtools for dealing with tabix files
     ```
@@ -134,11 +135,11 @@ provided pwms. The motif alignmment thresholds were set to the top 5k, 20k, 100k
 These are labeled with "_t5000" and likewise.
 
 
-## Motif Tabix File Creation
+## Motif Database Tabix File Creation
 Starting with a BED file of motif positions (minimal chr, start, end), follow 
 below to generate a tabix file that can be placed in /galaxy-dist/tool-data/motifs/.
 
-1. Download Tabix (http://sourceforge.net/projects/samtools/files/tabix/) and install.
+1. Download [Tabix](http://sourceforge.net/projects/samtools/files/tabix/) and install.
 Add `tabix` and `bgzip` binaries to your file path.
     ````
 tar -xvjf tabix-0.2.6.tar.bz2
