@@ -28,8 +28,8 @@ pwmFile = unlist(strsplit(args[8], ','))[1]  # If duplicate entires, take first 
 # Set input and reference files
 inTab1 = args[9]
 inTab2 = args[10]
-enrichTab = args[11]
-depleteTab = args[12]
+enrichTab1 = args[11]
+enrichTab2 = args[12]
 plotsPng = args[13]
 
 # Load dependencies
@@ -174,9 +174,9 @@ if(length(indicesGC) > 0) {
 	outDF$enrichment = ifelse(outDF$enrichment>1,
 														round(outDF$enrichment,3),
 														paste("1/",round(1/outDF$enrichment,3)))
-	write.table(outDF[indicesEnrich,], file=enrichTab, quote=FALSE, 
+	write.table(outDF[indicesEnrich,], file=enrichTab1, quote=FALSE, 
 							sep="\t", append=FALSE, row.names=FALSE, col.names=TRUE)
-	write.table(outDF[indicesDeplete,], file=depleteTab, quote=FALSE, 
+	write.table(outDF[indicesDeplete,], file=enrichTab2, quote=FALSE, 
 							sep="\t", append=FALSE, row.names=FALSE, col.names=TRUE)
 }
 

@@ -4,14 +4,14 @@
     <requirement type="set_environment">RMOTIF_PATH</requirement>
   </requirements>
   <command interpreter="Rscript">
-    region_motif_compare.r --args \$RMOTIF_PATH $pwm_file.fields.path $in_tab_1 $in_tab_2 
-    $out_enriched 
-    $out_depleted 
+    region_motif_compare.r --args \$RMOTIF_PATH $pwm_file.fields.path $in_tab_a $in_tab_b 
+    $out_enriched_a 
+    $out_enriched_b
     $out_plots
   </command>
   <inputs>
-    <param name="in_tab_1" type="data" format="tabular" label="Region Set 1 Motif Count File"/>
-    <param name="in_tab_2" type="data" format="tabular" label="Region Set 2 Motif Count File"/>
+    <param name="in_tab_a" type="data" format="tabular" label="Region Set A Motif Count File"/>
+    <param name="in_tab_b" type="data" format="tabular" label="Region Set B Motif Count File"/>
 
     <param name="pwm_file" type="select" label="Using motif database PWM file">
       <options from_data_table="motif_databases"/>
@@ -19,11 +19,12 @@
   </inputs>
 
   <outputs>
-    <data name="out_enriched" format="tabular" label="Enriched Motifs"/>
-    <data name="out_depleted" format="tabular" label="Depleted Motifs"/>
+    <data name="out_enriched_a" format="tabular" label="Enriched Motifs in Region Set A"/>
+    <data name="out_enriched_b" format="tabular" label="Enriched Motifs in Region Set B"/>
     <data name="out_plots" format="png" label="Motif Count Comparison Plots"/>
   </outputs>
 
+<!--
   <tests>
     <test>
       <param name="in_tab_1" value="XXX.tab" />
@@ -34,6 +35,7 @@
       <output name="out_plots" file="XXX.png" />          
     </test>
   </tests>
+-->
 
   <help>
     This tools reads in two counts file and determines enriched and depleted
