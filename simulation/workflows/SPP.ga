@@ -1,0 +1,211 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "{\"refinery_type\": \"analysis\", \"refinery_relationships\": [{\"category\": \"1-1\", \"set1\": \"tag file\", \"set2\": \"background file\"}]}", 
+    "format-version": "0.1", 
+    "name": "SPP", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "tag file"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 717, 
+                "top": 799
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"tag file\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "background file"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 720, 
+                "top": 885
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"background file\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "{\"correlation_plot_file\": {\"name\":\"correlation_plot_file\", \"description\":\"\", \"type\":\"txt\"}}", 
+            "id": 2, 
+            "input_connections": {
+                "background_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "tag_file": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "SPP", 
+            "outputs": [
+                {
+                    "name": "narrowpeak_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "regionpeak_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "correlation_plot_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 942, 
+                "top": 802
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "refinery_sim_spp", 
+            "tool_state": "{\"__page__\": 0, \"background_file\": \"null\", \"stdout\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"tag_file\": \"null\", \"stderr\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input_file": {
+                    "id": 2, 
+                    "output_name": "narrowpeak_file"
+                }
+            }, 
+            "inputs": [], 
+            "name": "cut", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1204, 
+                "top": 782
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "refinery_sim_cut", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"stdout\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input_file": {
+                    "id": 2, 
+                    "output_name": "regionpeak_file"
+                }
+            }, 
+            "inputs": [], 
+            "name": "cut", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1189, 
+                "top": 907
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "refinery_sim_cut", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"stdout\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "5": {
+            "annotation": "{\"output_file\": {\"name\":\"narrowpeak_file\", \"description\":\"\", \"type\":\"txt\"}}", 
+            "id": 5, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "name": "filter", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1415, 
+                "top": 783
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "refinery_sim_filter", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"stdout\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "6": {
+            "annotation": "{\"output_file\": {\"name\":\"regionpeak_file\", \"description\":\"\", \"type\":\"txt\"}}", 
+            "id": 6, 
+            "input_connections": {
+                "input_file": {
+                    "id": 4, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "name": "filter", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1422, 
+                "top": 911
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "refinery_sim_filter", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"stdout\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}

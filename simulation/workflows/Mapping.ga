@@ -1,0 +1,118 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "{\"refinery_type\": \"analysis\"}", 
+    "format-version": "0.1", 
+    "name": "Mapping", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 417, 
+                "top": 415
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {
+                "fastq_input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "FASTQ Groomer", 
+            "outputs": [
+                {
+                    "name": "fastq_output", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 616, 
+                "top": 396
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "refinery_sim_fastq_groomer", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"fastq_input\": \"null\", \"stderr\": \"\\\"False\\\"\", \"stdout\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "fastq_file": {
+                    "id": 1, 
+                    "output_name": "fastq_output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Bowtie", 
+            "outputs": [
+                {
+                    "name": "sam_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 808, 
+                "top": 398
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "refinery_sim_bowtie", 
+            "tool_state": "{\"__page__\": 0, \"fastq_file\": \"null\", \"__rerun_remap_job_id__\": null, \"stderr\": \"\\\"False\\\"\", \"stdout\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "3": {
+            "annotation": "{\"bam_file\": {\"name\":\"bam_file\", \"description\":\"Mapped reads\", \"type\":\"txt\"}}", 
+            "id": 3, 
+            "input_connections": {
+                "sam_file": {
+                    "id": 2, 
+                    "output_name": "sam_file"
+                }
+            }, 
+            "inputs": [], 
+            "name": "sam_to_bam", 
+            "outputs": [
+                {
+                    "name": "bam_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 983, 
+                "top": 400
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "refinery_sim_sam_to_bam", 
+            "tool_state": "{\"__page__\": 0, \"sam_file\": \"null\", \"__rerun_remap_job_id__\": null, \"stderr\": \"\\\"False\\\"\", \"stdout\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}

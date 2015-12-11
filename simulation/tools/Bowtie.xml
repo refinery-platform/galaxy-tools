@@ -1,0 +1,45 @@
+<tool id="refinery_sim_bowtie" name="Bowtie" version="0.1">
+    <description>for testing Galaxy workflow execution from Refinery</description>
+
+    <command interpreter="python">
+        refinery_test_tool.py -i $fastq_file -o $sam_file -e 0 -p 0 -s 0 $stdout $stderr
+    </command>
+
+    <inputs>
+        <param name="fastq_file" format="txt" type="data" label="FASTQ file"/>
+        <param name="stdout" type="boolean" label="Write to standard out" truevalue="--stdout" falsevalue=""/>
+        <param name="stderr" type="boolean" label="Write to standard error" truevalue="--stderr" falsevalue=""/>
+    </inputs>
+
+    <outputs>
+        <data format="txt" name="sam_file" label="SAM file"/>
+    </outputs>
+
+    <stdio>
+        <exit_code range="1:" level="fatal" />
+        <regex match=".+" source="stdout" level="fatal" description="Tool produced output to standard out" />
+        <regex match=".+" source="stderr" level="fatal" description="Tool produced output to standard error" />
+    </stdio>
+
+    <help>
+
+.. class:: infomark
+
+**Purpose**
+
+To test Galaxy workflow execution and monitoring from Refinery.
+
+-----
+
+.. class:: infomark
+
+**Inputs and outputs**
+
+This wrapper will accept two text files as input and produce two output files
+with concatenated content from input files.
+
+*Note:* You must set the "Probability of failure" parameter to a non-zero value
+for "Write to standard out", "Write to standard error" or "Exit code" to take effect.
+
+    </help>
+</tool>

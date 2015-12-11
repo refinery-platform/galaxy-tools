@@ -1,0 +1,64 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "{\"refinery_type\": \"analysis\"}", 
+    "format-version": "0.1", 
+    "name": "Compress", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 926, 
+                "top": 602
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "{\"html_file\": {\"name\":\"html_file\", \"description\":\"QC Report\", \"type\":\"txt\"}, \"statistics_file\": {\"name\":\"statistics_file\", \"description\":\"QC Statistics\", \"type\":\"txt\"}}", 
+            "id": 1, 
+            "input_connections": {
+                "fastq_file": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "FastQC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "statistics_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1194, 
+                "top": 573
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "refinery_sim_fastqc", 
+            "tool_state": "{\"__page__\": 0, \"fastq_file\": \"null\", \"__rerun_remap_job_id__\": null, \"stderr\": \"\\\"False\\\"\", \"stdout\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}

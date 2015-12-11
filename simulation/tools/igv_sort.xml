@@ -1,0 +1,45 @@
+<tool id="refinery_sim_igv_sort" name="igv_sort" version="0.1">
+    <description>for testing Galaxy workflow execution from Refinery</description>
+
+    <command interpreter="python">
+        refinery_test_tool.py -i $unsorted_bed_file -o $sorted_bed_file -e 0 -p 0 -s 0 $stdout $stderr
+    </command>
+
+    <inputs>
+        <param name="unsorted_bed_file" format="txt" type="data" label="unsorted BED file"/>
+        <param name="stdout" type="boolean" label="Write to standard out" truevalue="--stdout" falsevalue=""/>
+        <param name="stderr" type="boolean" label="Write to standard error" truevalue="--stderr" falsevalue=""/>
+    </inputs>
+
+    <outputs>
+        <data format="txt" name="sorted_bed_file" label="sorted BED file"/>
+    </outputs>
+
+    <stdio>
+        <exit_code range="1:" level="fatal" />
+        <regex match=".+" source="stdout" level="fatal" description="Tool produced output to standard out" />
+        <regex match=".+" source="stderr" level="fatal" description="Tool produced output to standard error" />
+    </stdio>
+
+    <help>
+
+.. class:: infomark
+
+**Purpose**
+
+To test Galaxy workflow execution and monitoring from Refinery.
+
+-----
+
+.. class:: infomark
+
+**Inputs and outputs**
+
+This wrapper will accept two text files as input and produce two output files
+with concatenated content from input files.
+
+*Note:* You must set the "Probability of failure" parameter to a non-zero value
+for "Write to standard out", "Write to standard error" or "Exit code" to take effect.
+
+    </help>
+</tool>
