@@ -1,6 +1,6 @@
 # Setup
 
-Create a directory called `refinery` in the `tools` directory of your Galaxy installation and copy the file from this directory into it. 
+Create a directory called `refinery` in the `tools` directory of your Galaxy installation and copy the files from the `tools` directory of this repository into it. 
 Then add the following to the `toolbox` section of the `tool_conf.xml` file of your Galaxy installation.
 ```xml
     <label id="simulation" text="Simulation" />
