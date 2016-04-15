@@ -5,3 +5,4 @@
 .pydevproject
 region-motif-compare/upload*
 region-motif-data-manager/upload*
+.DS_Store*
