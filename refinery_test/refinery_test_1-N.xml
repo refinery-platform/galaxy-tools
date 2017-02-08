@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tool id="refinery_test_1-N" name="Refinery test tool 1-N" version="0.1">
+    <description>for testing Galaxy workflow execution from Refinery</description>
+
+	<command>
+       <![CDATA[ 	
+          ## Run the splitter tool on a single file & partition it in a way that regenerates each of our original text files.  
+	  	  $__tool_directory__/refinery_file_splitter.py -i $input_file
+	   ]]>
+  </command>  
+    <inputs>
+		<param name="input_file" format="txt" type="data" label="Input file"/>
+    </inputs>
+
+    <outputs>
+            <discover_datasets pattern="__designation_and_ext__" visible="true" />
+    </outputs>
+    <help>
+
+    .. class:: infomark
+
+    **Purpose**
+
+    To test Galaxy workflow execution and monitoring from Refinery.
+
+    -----
+
+    .. class:: infomark
+
+    **Inputs and outputs**
+
+    This wrapper will accept single file containing the concatenated contents of N files ran through the "refinery_test_tool" as input and produce N outputs containing the original contents of the N files.
+
+    </help>
+</tool>

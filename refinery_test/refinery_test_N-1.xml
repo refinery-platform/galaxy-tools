@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<tool id="refinery_test_N-1" name="Refinery test tool N-1" version="0.1">
+<description>for testing Galaxy workflow execution from Refinery</description>
+    <command>
+    <![CDATA[
+      ## Argparse expects many values for a single arg to be in the form of: -i INUPT INPUT1 INPUT2 ...
+      
+      #set $inputs = " ".join([$input_file.__str__ for $input_file in $input_col])
+
+      ## Run the test tool with the N inputs from our Dataset Collection
+      
+      $__tool_directory__/refinery_test_tool.py -i $inputs -o $output_file -e $exit_code -p $p_fail -s $sleep_time $stdout $stderr $empty_outfile
+    ]]>
+  </command>
+    <inputs>
+        <param name="input_col" type="data_collection" collection_type="list" label="Input file"/>
+        <param name="sleep_time" type="integer" label="Sleep (seconds)" value="0" min="0"/>
+        <param name="empty_outfile" type="boolean" label="Produce empty output file" truevalue="--empty_outfile" falsevalue=""/>
+        <param name="p_fail" type="float" label="Probability of failure [0.0, 1.0]" value="0.0" min="0.0" max="1.0"/>
+        <param name="stdout" type="boolean" label="Write to standard out" truevalue="--stdout" falsevalue=""/>
+        <param name="stderr" type="boolean" label="Write to standard error" truevalue="--stderr" falsevalue=""/>
+        <param name="exit_code" type="integer" label="Exit code [0, 255]" value="0" min="0" max="255"/>
+    </inputs>
+
+    <outputs>
+        <data format="txt" name="output_file" label="Refinery Test Tool N-1 Output" />
+    </outputs>
+
+    <stdio>
+        <exit_code range="1:" level="fatal" />
+        <regex match=".+" source="stdout" level="fatal" description="Tool produced output to standard out" />
+        <regex match=".+" source="stderr" level="fatal" description="Tool produced output to standard error" />
+    </stdio>
+    <help>
+
+    .. class:: infomark
+
+    **Purpose**
+
+    To test Galaxy workflow execution and monitoring from Refinery.
+
+    -----
+
+    .. class:: infomark
+
+    **Inputs and outputs**
+
+    This wrapper will accept A Dataset collection(list) as input and produce a single output file with the concatenated, annotated content of each element in the Dataset Collection.
+
+    *Note:* You must set the "Probability of failure" parameter to a non-zero value
+    for "Write to standard out", "Write to standard error" or "Exit code" to take effect.
+
+        </help>
+</tool>
