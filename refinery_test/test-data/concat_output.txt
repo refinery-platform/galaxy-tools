@@ -1,28 +1,28 @@
-Output file name: /Users/scott/PyCharmProjects/Galaxy/galaxy/database/files/009/dataset_9980.dat
+Output file name: "<base_path>"/galaxy/database/files/009/dataset_9980.dat
 
-Input file name: /Users/scott/PyCharmProjects/Galaxy/galaxy/database/files/009/dataset_9977.dat
+Input file name: "<base_path>"/galaxy/database/files/009/dataset_9977.dat
 
-Output file name: /Users/scott/PyCharmProjects/Galaxy/galaxy/database/files/009/dataset_9977.dat
+Output file name: "<base_path>"/galaxy/database/files/009/dataset_9977.dat
 
-Input file name: /Users/scott/PyCharmProjects/Galaxy/galaxy/database/files/009/dataset_9808.dat
+Input file name: "<base_path>"/galaxy/database/files/009/dataset_9808.dat
 
 Contents of File 3:
 TEST TEST TEST TEST
 TEST TEST TEST TEST
-Input file name: /Users/scott/PyCharmProjects/Galaxy/galaxy/database/files/009/dataset_9978.dat
+Input file name: "<base_path>"/galaxy/database/files/009/dataset_9978.dat
 
-Output file name: /Users/scott/PyCharmProjects/Galaxy/galaxy/database/files/009/dataset_9978.dat
+Output file name: "<base_path>"/galaxy/database/files/009/dataset_9978.dat
 
-Input file name: /Users/scott/PyCharmProjects/Galaxy/galaxy/database/files/009/dataset_9807.dat
+Input file name: "<base_path>"/galaxy/database/files/009/dataset_9807.dat
 
 Contents of File 2:
 TEST TEST TEST TEST
 TEST TEST TEST TEST
-Input file name: /Users/scott/PyCharmProjects/Galaxy/galaxy/database/files/009/dataset_9979.dat
+Input file name: "<base_path>"/galaxy/database/files/009/dataset_9979.dat
 
-Output file name: /Users/scott/PyCharmProjects/Galaxy/galaxy/database/files/009/dataset_9979.dat
+Output file name: "<base_path>"/galaxy/database/files/009/dataset_9979.dat
 
-Input file name: /Users/scott/PyCharmProjects/Galaxy/galaxy/database/files/009/dataset_9806.dat
+Input file name: "<base_path>"/galaxy/database/files/009/dataset_9806.dat
 
 Contents of File 1:
 TEST TEST TEST TEST
