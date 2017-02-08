@@ -13,8 +13,8 @@
       $__tool_directory__/refinery_test_tool.py -i $inputs -o $output_file -e $exit_code -p $p_fail -s $sleep_time $stdout $stderr $empty_outfile
     ]]>
   </command>
-    <inputs>
-        <param name="input_col" type="data_collection" collection_type="list" label="Input file"/>
+  <inputs>
+	    <param name="input_col" type="data_collection" collection_type="list" label="Input file"/>
         <param name="sleep_time" type="integer" label="Sleep (seconds)" value="0" min="0"/>
         <param name="empty_outfile" type="boolean" label="Produce empty output file" truevalue="--empty_outfile" falsevalue=""/>
         <param name="p_fail" type="float" label="Probability of failure [0.0, 1.0]" value="0.0" min="0.0" max="1.0"/>
@@ -32,24 +32,46 @@
         <regex match=".+" source="stdout" level="fatal" description="Tool produced output to standard out" />
         <regex match=".+" source="stderr" level="fatal" description="Tool produced output to standard error" />
     </stdio>
+	<tests>
+  		<test>
+			<param name="input_col">
+            	<collection type="list">
+                	<element name="1" value="file1.txt"/>
+                	<element name="2" value="file2.txt"/>
+                	<element name="3" value="file3.txt"/>
+            	</collection>
+        	</param>
+			<param name="sleep_time" type="integer" label="Sleep (seconds)" value="0" min="0"/>
+        	<param name="empty_outfile" type="boolean" label="Produce empty output file" truevalue="--empty_outfile" falsevalue=""/>
+        	<param name="p_fail" type="float" label="Probability of failure [0.0, 1.0]" value="0.0" min="0.0" max="1.0"/>
+        	<param name="stdout" type="boolean" label="Write to standard out" truevalue="--stdout" falsevalue=""/>
+        	<param name="stderr" type="boolean" label="Write to standard error" truevalue="--stderr" falsevalue=""/>
+        	<param name="exit_code" type="integer" label="Exit code [0, 255]" value="0" min="0" max="255"/>
+    		<output name="output_file">
+				<assert_contents>
+            		<has_text text="Contents of File 1" />
+					<has_text text="Contents of File 2" />
+					<has_text text="Contents of File 3" />
+        		</assert_contents>
+			</output>		
+		</test>
+	</tests>
     <help>
+        .. class:: infomark
 
-    .. class:: infomark
+        **Purpose**
 
-    **Purpose**
+        To test Galaxy workflow execution and monitoring from Refinery.
 
-    To test Galaxy workflow execution and monitoring from Refinery.
+        -----
 
-    -----
+        .. class:: infomark
 
-    .. class:: infomark
+        **Inputs and outputs**
 
-    **Inputs and outputs**
+        This wrapper will accept A Dataset collection list as input and produce a single output file with the concatenated, annotated content of each element in the Dataset Collection.
 
-    This wrapper will accept A Dataset collection(list) as input and produce a single output file with the concatenated, annotated content of each element in the Dataset Collection.
-
-    *Note:* You must set the "Probability of failure" parameter to a non-zero value
-    for "Write to standard out", "Write to standard error" or "Exit code" to take effect.
-
-        </help>
+        *Note:* You must set the "Probability of failure" parameter to a non-zero value
+        for "Write to standard out", "Write to standard error" or "Exit code" to take effect.
+    </help>
 </tool>
