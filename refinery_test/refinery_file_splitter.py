@@ -6,7 +6,8 @@ Test tool for splitting output files from Refinery Test Tools
 @author: Scott Ouellette
 
 Input: one text file
-Output: N output files based on the amount of input files that got concatenated from Refinery test tool runs
+Output: N output files based on the amount of input files that 
+got concatenated from Refinery test tool runs
 
 Requires Python v2.7
 
