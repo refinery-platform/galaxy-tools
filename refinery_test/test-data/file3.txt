@@ -1,0 +1,4 @@
+Contents of File 3:
+TEST TEST TEST TEST
+TEST TEST TEST TEST
+

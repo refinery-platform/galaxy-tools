@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<tool id="refinery_test_1-N" name="Refinery test tool 1-N" version="0.1">
+    <description>for testing Galaxy workflow execution from Refinery</description>
+        <command>
+            <![CDATA[ 	
+                ## Run the splitter tool upon a single input producing N outputs based on how many concatenated files our input was created from.
+                $__tool_directory__/refinery_file_splitter.py -i $input_file
+            ]]>
+        </command>  
+    <inputs>
+        <param name="input_file" format="txt" type="data" label="Input file"/>
+    </inputs>
+    <outputs>
+        <data format="txt" name="report">
+            <discover_datasets pattern="__designation_and_ext__" visible="true"/>
+        </data>
+    </outputs>
+    <tests>
+        <test>
+            <param name="input_file" value="concat_output.txt"/>
+            <discovered_dataset designation="Output file 1" ftype="txt">
+                <assert_contents>
+                    <has_line line="Contents of File 1:"/>
+                </assert_contents>
+            </discovered_dataset>
+            <discovered_dataset designation="Output file 2" ftype="txt">
+                <assert_contents>
+                    <has_line line="Contents of File 2:"/>
+                </assert_contents>
+            </discovered_dataset>
+            <discovered_dataset designation="Output file 3" ftype="txt">
+                <assert_contents>
+                    <has_line line="Contents of File 3:"/>
+                </assert_contents>
+            </discovered_dataset>
+        </test>
+    </tests>
+    <help>
+        .. class:: infomark
+
+        **Purpose**
+
+        To test Galaxy workflow execution and monitoring from Refinery.
+
+        -----
+
+        .. class:: infomark
+
+        **Inputs and outputs**
+
+        This wrapper will accept one input file with the concatenated data of N input files run through refinery test tools and will partition said data into N output files containing the afforementioned N input files original contents
+    </help>	
+</tool>
