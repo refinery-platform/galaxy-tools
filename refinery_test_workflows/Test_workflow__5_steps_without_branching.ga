@@ -1,11 +1,13 @@
 {
     "a_galaxy_workflow": "true", 
-    "annotation": "{\"refinery_type\": \"analysis\"}", 
+    "annotation": "{\n  \"description\": \"Test workflow with 5 steps.\",\n  \"file_relationship\": {\n    \"file_relationship\": {},\n    \"value_type\": \"LIST\",\n    \"name\": \"List of Input Files\",\n    \"input_files\": [\n      {\n        \"allowed_filetypes\": [{\"name\": \"TXT\"}],\n        \"name\": \"Input File\",\n        \"description\": \"File to run Test Workflow on\"\n      }\n    ]\n  }\n}", 
     "format-version": "0.1", 
     "name": "Test workflow: 5 steps without branching", 
     "steps": {
         "0": {
             "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
             "id": 0, 
             "input_connections": {}, 
             "inputs": [
@@ -14,21 +16,30 @@
                     "name": "Input Dataset"
                 }
             ], 
+            "label": null, 
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 200, 
-                "top": 270
+                "left": 222, 
+                "top": 294
             }, 
-            "tool_errors": null, 
             "tool_id": null, 
             "tool_state": "{\"name\": \"Input Dataset\"}", 
             "tool_version": null, 
             "type": "data_input", 
-            "user_outputs": []
+            "uuid": "ed4bc75c-7b79-44ed-823b-640fccd3b2b0", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "ba585cef-917a-49fa-9875-92e7f7872d8d"
+                }
+            ]
         }, 
         "1": {
             "annotation": "", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/refinery-platform/refinery_test/refinery_test_1-1/0.1", 
+            "errors": null, 
             "id": 1, 
             "input_connections": {
                 "input_file": {
@@ -36,7 +47,13 @@
                     "output_name": "output"
                 }
             }, 
-            "inputs": [], 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Refinery test tool 1-1", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
             "name": "Refinery test tool 1-1", 
             "outputs": [
                 {
@@ -45,19 +62,33 @@
                 }
             ], 
             "position": {
-                "left": 404, 
-                "top": 248
+                "left": 426, 
+                "top": 272
             }, 
-            "post_job_actions": {}, 
-            "tool_errors": null, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_file"
+                }
+            }, 
             "tool_id": "testtoolshed.g2.bx.psu.edu/repos/refinery-platform/refinery_test/refinery_test_1-1/0.1", 
-            "tool_state": "{\"__page__\": 0, \"input_file\": \"null\", \"stdout\": \"\\\"False\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_shed_repository": {
+                "changeset_revision": "b87749d7a24c", 
+                "name": "refinery_test", 
+                "owner": "refinery-platform", 
+                "tool_shed": "testtoolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"stdout\": \"\\\"false\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"false\\\"\", \"stderr\": \"\\\"false\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
             "tool_version": "0.1", 
             "type": "tool", 
-            "user_outputs": []
+            "uuid": "0d47dc05-ba01-4066-bb90-e6e2cb8a5c6d", 
+            "workflow_outputs": []
         }, 
         "2": {
             "annotation": "", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/refinery-platform/refinery_test/refinery_test_1-1/0.1", 
+            "errors": null, 
             "id": 2, 
             "input_connections": {
                 "input_file": {
@@ -65,7 +96,13 @@
                     "output_name": "output_file"
                 }
             }, 
-            "inputs": [], 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Refinery test tool 1-1", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
             "name": "Refinery test tool 1-1", 
             "outputs": [
                 {
@@ -74,19 +111,33 @@
                 }
             ], 
             "position": {
-                "left": 623, 
-                "top": 251
+                "left": 645, 
+                "top": 275
             }, 
-            "post_job_actions": {}, 
-            "tool_errors": null, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_file"
+                }
+            }, 
             "tool_id": "testtoolshed.g2.bx.psu.edu/repos/refinery-platform/refinery_test/refinery_test_1-1/0.1", 
-            "tool_state": "{\"__page__\": 0, \"input_file\": \"null\", \"stdout\": \"\\\"False\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_shed_repository": {
+                "changeset_revision": "b87749d7a24c", 
+                "name": "refinery_test", 
+                "owner": "refinery-platform", 
+                "tool_shed": "testtoolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"stdout\": \"\\\"false\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"false\\\"\", \"stderr\": \"\\\"false\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
             "tool_version": "0.1", 
             "type": "tool", 
-            "user_outputs": []
+            "uuid": "7ec1eea7-217a-43c8-b7c0-b3da704f79e7", 
+            "workflow_outputs": []
         }, 
         "3": {
             "annotation": "", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/refinery-platform/refinery_test/refinery_test_1-1/0.1", 
+            "errors": null, 
             "id": 3, 
             "input_connections": {
                 "input_file": {
@@ -94,7 +145,13 @@
                     "output_name": "output_file"
                 }
             }, 
-            "inputs": [], 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Refinery test tool 1-1", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
             "name": "Refinery test tool 1-1", 
             "outputs": [
                 {
@@ -103,19 +160,33 @@
                 }
             ], 
             "position": {
-                "left": 841, 
-                "top": 252
+                "left": 863, 
+                "top": 276
             }, 
-            "post_job_actions": {}, 
-            "tool_errors": null, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_file"
+                }
+            }, 
             "tool_id": "testtoolshed.g2.bx.psu.edu/repos/refinery-platform/refinery_test/refinery_test_1-1/0.1", 
-            "tool_state": "{\"__page__\": 0, \"input_file\": \"null\", \"stdout\": \"\\\"False\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_shed_repository": {
+                "changeset_revision": "b87749d7a24c", 
+                "name": "refinery_test", 
+                "owner": "refinery-platform", 
+                "tool_shed": "testtoolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"stdout\": \"\\\"false\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"false\\\"\", \"stderr\": \"\\\"false\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
             "tool_version": "0.1", 
             "type": "tool", 
-            "user_outputs": []
+            "uuid": "65ea0be4-4d23-443c-845b-61963135a461", 
+            "workflow_outputs": []
         }, 
         "4": {
             "annotation": "", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/refinery-platform/refinery_test/refinery_test_1-1/0.1", 
+            "errors": null, 
             "id": 4, 
             "input_connections": {
                 "input_file": {
@@ -123,7 +194,13 @@
                     "output_name": "output_file"
                 }
             }, 
-            "inputs": [], 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Refinery test tool 1-1", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
             "name": "Refinery test tool 1-1", 
             "outputs": [
                 {
@@ -132,19 +209,33 @@
                 }
             ], 
             "position": {
-                "left": 1053, 
-                "top": 254
+                "left": 1075, 
+                "top": 278
             }, 
-            "post_job_actions": {}, 
-            "tool_errors": null, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_file"
+                }
+            }, 
             "tool_id": "testtoolshed.g2.bx.psu.edu/repos/refinery-platform/refinery_test/refinery_test_1-1/0.1", 
-            "tool_state": "{\"__page__\": 0, \"input_file\": \"null\", \"stdout\": \"\\\"False\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_shed_repository": {
+                "changeset_revision": "b87749d7a24c", 
+                "name": "refinery_test", 
+                "owner": "refinery-platform", 
+                "tool_shed": "testtoolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"stdout\": \"\\\"false\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"false\\\"\", \"stderr\": \"\\\"false\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
             "tool_version": "0.1", 
             "type": "tool", 
-            "user_outputs": []
+            "uuid": "feea94c1-c35e-4e61-ad82-dd168fb1e89d", 
+            "workflow_outputs": []
         }, 
         "5": {
-            "annotation": "{\"output_file\": {\"name\":\"test tool out\", \"description\":\"\", \"type\":\"txt\"}}", 
+            "annotation": "{\n   \"parameters\": [\n       {\n        \"name\": \"exit_code\",\n        \"description\": \"Exit code for the final Refinery Test Tool 1-1 in the workflow\",\n        \"value_type\": \"INTEGER\",\n        \"default_value\": 0\n      },\n      {\n        \"name\": \"p_fail\",\n        \"description\": \"Probability of failure for the final Refinery Test Tool 1-1 in the workflow\",\n        \"value_type\": \"FLOAT\",\n        \"default_value\": 0.0\n      },\n      {\n        \"name\": \"empty_outfile\",\n        \"description\": \"Whether or not the final Refinery Test Tool 1-1 in the workflow will produce an empty output file\",\n        \"value_type\": \"BOOLEAN\",\n        \"default_value\": false\n      }\n  ]\n}", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/refinery-platform/refinery_test/refinery_test_1-1/0.1", 
+            "errors": null, 
             "id": 5, 
             "input_connections": {
                 "input_file": {
@@ -152,7 +243,13 @@
                     "output_name": "output_file"
                 }
             }, 
-            "inputs": [], 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Refinery test tool 1-1", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
             "name": "Refinery test tool 1-1", 
             "outputs": [
                 {
@@ -161,16 +258,29 @@
                 }
             ], 
             "position": {
-                "left": 1271, 
-                "top": 257
+                "left": 1293, 
+                "top": 281
             }, 
             "post_job_actions": {}, 
-            "tool_errors": null, 
             "tool_id": "testtoolshed.g2.bx.psu.edu/repos/refinery-platform/refinery_test/refinery_test_1-1/0.1", 
-            "tool_state": "{\"__page__\": 0, \"input_file\": \"null\", \"stdout\": \"\\\"False\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"False\\\"\", \"stderr\": \"\\\"False\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
+            "tool_shed_repository": {
+                "changeset_revision": "b87749d7a24c", 
+                "name": "refinery_test", 
+                "owner": "refinery-platform", 
+                "tool_shed": "testtoolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"stdout\": \"\\\"false\\\"\", \"exit_code\": \"\\\"0\\\"\", \"p_fail\": \"\\\"0.0\\\"\", \"empty_outfile\": \"\\\"false\\\"\", \"stderr\": \"\\\"false\\\"\", \"sleep_time\": \"\\\"0\\\"\"}", 
             "tool_version": "0.1", 
             "type": "tool", 
-            "user_outputs": []
+            "uuid": "f3bb06cb-b80f-445b-8941-dfa21c715c67", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output_file", 
+                    "uuid": "fca55d5c-9a8b-4f4b-bac5-c44358f6ce49"
+                }
+            ]
         }
-    }
+    }, 
+    "uuid": "4bcb3ecd-7c63-4a73-b43d-3a70395458d6"
 }
