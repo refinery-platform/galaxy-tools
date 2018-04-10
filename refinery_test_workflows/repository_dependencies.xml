@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <repositories description="Refinery test workflows require Refinery test tools.">
-     <repository toolshed="https://testtoolshed.g2.bx.psu.edu" name="refinery_test" owner="refinery-platform" changeset_revision="5b28174e774d" />
+     <repository toolshed="https://testtoolshed.g2.bx.psu.edu" name="refinery_test" owner="refinery-platform" changeset_revision="b87749d7a24c" />
 </repositories>
