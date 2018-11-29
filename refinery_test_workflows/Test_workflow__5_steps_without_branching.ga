@@ -261,8 +261,16 @@
                 "left": 1293, 
                 "top": 281
             }, 
-            "post_job_actions": {}, 
             "tool_id": "testtoolshed.g2.bx.psu.edu/repos/refinery-platform/refinery_test/refinery_test_1-1/0.1", 
+            "post_job_actions": {
+                "RenameDatasetActionoutput_file": {
+                    "action_arguments": {
+                        "newname": "output_file_5"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output_file"
+                }
+            },
             "tool_shed_repository": {
                 "changeset_revision": "b87749d7a24c", 
                 "name": "refinery_test", 
